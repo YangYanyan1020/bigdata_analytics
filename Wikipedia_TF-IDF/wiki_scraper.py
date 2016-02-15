@@ -18,6 +18,7 @@ def get_wiki_pages():
         filename = 'wiki-pages/' + link[6:]
         f = open(filename, 'w')
         f.write(article.cleaned_text.encode('ascii', 'ignore'))
+        f.close()
 
 if __name__ == '__main__':
     get_wiki_pages()
