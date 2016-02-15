@@ -1,0 +1,17 @@
+In graph theory, an edge dominating set for a graph G=(V,E) is a subset DE such that every edge not in D is adjacent to at least one edge in D. An edge dominating set is also known as a line dominating set. Figures (a)(d) are examples of edge dominating sets (thick red lines).
+
+A minimum edge dominating set is a smallest edge dominating set. Figures (a) and (b) are examples of minimum edge dominating sets (it can be checked that there is no edge dominating set of size 2 for this graph).
+
+An edge dominating set for G is a dominating set for its line graph L(G) and vice versa.
+
+Any maximal matching is always an edge dominating set. Figures (b) and (d) are examples of maximal matchings.
+
+Furthermore, the size of a minimum edge dominating set equals the size of a minimum maximal matching. A minimum maximal matching is a minimum edge dominating set; Figure (b) is an example of a minimum maximal matching. A minimum edge dominating set is not necessarily a minimum maximal matching, as illustrated in Figure (a); however, given a minimum edge dominating set D, it is easy to find a minimum maximal matching with |D| edges (see, e.g., Yannakakis & Gavril 1980).
+
+Determining whether there is an edge dominating set of a given size for a given graph is an NP-complete problem (and therefore finding a minimum edge dominating set is an NP-hard problem). Yannakakis & Gavril (1980) show that the problem is NP-complete even in the case of a bipartite graph with maximum degree 3, and also in the case of a planar graph with maximum degree 3.
+
+There is a simple polynomial-time approximation algorithm with approximation factor 2: find any maximal matching. A maximal matching is an edge dominating set; furthermore, a maximal matching M can be at worst 2 times as large as a smallest maximal matching, and a smallest maximal matching has the same size as the smallest edge dominating set.
+
+Also the edge-weighted version of the problem can be approximated within factor 2, but the algorithm is considerably more complicated (Fujito & Nagamochi 2002).
+
+Chlebk & Chlebkov (2006) show that finding a better than (7/6)-approximation is NP-hard.

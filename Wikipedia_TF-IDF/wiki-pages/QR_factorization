@@ -1,0 +1,123 @@
+In linear algebra, a QR decomposition (also called a QR factorization) of a matrix is a decomposition of a matrix A into a product A=QR of an orthogonal matrix Q and an upper triangular matrixR. QR decomposition is often used to solve the linear least squares problem, and is the basis for a particular eigenvalue algorithm, the QR algorithm.
+
+Any real square matrix A may be decomposed as
+
+where Q is an orthogonal matrix (its columns are orthogonal unit vectors meaning QTQ = I) and R is an upper triangular matrix (also called right triangular matrix). If A is invertible, then the factorization is unique if we require that the diagonal elements of R be positive.
+
+If instead A is a complex square matrix, then there is a decomposition A = QR where Q is a unitary matrix (so Q*Q = I).
+
+If A has n linearly independent columns, then the first n columns of Q form an orthonormal basis for the column space of A. More generally, the first k columns of Q form an orthonormal basis for the span of the first k columns of A for any 1kn.[1] The fact that any column k of A only depends on the first k columns of Q is responsible for the triangular form ofR.[1]
+
+More generally, we can factor a complex mn matrix A, with mn, as the product of an mm unitary matrix Q and an mn upper triangular matrix R. As the bottom (mn) rows of an mn upper triangular matrix consist entirely of zeroes, it is often useful to partition R, or both R and Q:
+
+where R is an nn upper triangular matrix, 0 is an (mn)n zero matrix, Q is mn, Q is m(mn), and Q and Q both have orthogonal columns.
+
+Golub & Van Loan (1996, 5.2) call Q R the thin QR factorization of A; Trefethen and Bau call this the reduced QR factorization.[1] If A is of full rank n and we require that the diagonal elements of R are positive then R and Q are unique, but in general Q is not. R is then equal to the upper triangular factor of the Cholesky decomposition of A* A (=ATA if A is real).
+
+Analogously, we can define QL, RQ, and LQ decompositions, with L being a lower triangular matrix.
+
+There are several methods for actually computing the QR decomposition, such as by means of the GramSchmidt process, Householder transformations, or Givens rotations. Each has a number of advantages and disadvantages.
+
+Consider the GramSchmidt process applied to the columns of the full column rank matrix , with inner product (or for the complex case).
+
+We can now express the s over our newly computed orthonormal basis:
+
+where . This can be written in matrix form:
+
+Consider the decomposition of
+
+Recall that an orthonormal matrix has the property
+
+Then, we can calculate by means of GramSchmidt as follows:
+
+Thus, we have
+
+The RQ decomposition transforms a matrix A into the product of an upper triangular matrix R (also known as right-triangular) and an orthogonal matrix Q. The only difference from QR decomposition is the order of these matrices.
+
+QR decomposition is GramSchmidt orthogonalization of columns of A, started from the first column.
+
+RQ decomposition is GramSchmidt orthogonalization of rows of A, started from the last row.
+
+A Householder reflection (or Householder transformation) is a transformation that takes a vector and reflects it about some plane or hyperplane. We can use this operation to calculate the QR factorization of an m-by-n matrix with mn.
+
+Q can be used to reflect a vector in such a way that all coordinates but one disappear.
+
+Let be an arbitrary real m-dimensional column vector of such that for a scalar . If the algorithm is implemented using floating-point arithmetic, then  should get the opposite sign as the k-th coordinate of , where is to be the pivot coordinate after which all entries are 0 in matrix A's final upper triangular form, to avoid loss of significance. In the complex case, set
+
+(Stoer & Bulirsch 2002, p.225) and substitute transposition by conjugate transposition in the construction of Q below.
+
+Then, where is the vector (1,0,...,0)T, |||| is the Euclidean norm and is an m-by-m identity matrix, set
+
+Or, if is complex
+
+is an m-by-m Householder matrix and
+
+This can be used to gradually transform an m-by-n matrix A to upper triangular form. First, we multiply A with the Householder matrix Q we obtain when we choose the first matrix column for x. This results in a matrix Q A with zeros in the left column (except for the first row).
+
+This can be repeated for A (obtained from Q A by deleting the first row and first column), resulting in a Householder matrix Q . Note that Q is smaller than Q . Since we want it really to operate on Q A instead of A we need to expand it to the upper left, filling in a 1, or in general:
+
+After iterations of this process, ,
+
+is an upper triangular matrix. So, with
+
+This method has greater numerical stability than the GramSchmidt method above.
+
+The following table gives the number of operations in the k-th step of the QR-decomposition by the Householder transformation, assuming a square matrix with size n.
+
+Summing these numbers over the n1 steps (for a square matrix of size n), the complexity of the algorithm (in terms of floating point multiplications) is given by
+
+Let us calculate the decomposition of
+
+First, we need to find a reflection that transforms the first column of matrix A, vector , into
+
+so we already have almost a triangular matrix. We only need to zero the (3, 2) entry.
+
+Take the (1, 1) minor, and then apply the process again to
+
+By the same method as above, we obtain the matrix of the Householder transformation
+
+after performing a direct sum with 1 to make sure the next step in the process works properly.
+
+The matrix Q is orthogonal and R is upper triangular, so A = QR is the required QR-decomposition.
+
+QR decompositions can also be computed with a series of Givens rotations. Each rotation zeros an element in the subdiagonal of the matrix, forming the R matrix. The concatenation of all the Givens rotations forms the orthogonal Q matrix.
+
+In practice, Givens rotations are not actually performed by building a whole matrix and doing a matrix multiplication. A Givens rotation procedure is used instead which does the equivalent of the sparse Givens matrix multiplication, without the extra work of handling the sparse elements. The Givens rotation procedure is useful in situations where only a relatively few off diagonal elements need to be zeroed, and is more easily parallelized than Householder transformations.
+
+Let us calculate the decomposition of
+
+First, we need to form a rotation matrix that will zero the lowermost left element, . We form this matrix using the Givens rotation method, and call the matrix . We will first rotate the vector , to point along the X axis. This vector has an angle . We create the orthogonal Givens rotation matrix, :
+
+And the result of now has a zero in the element.
+
+We can similarly form Givens matrices and , which will zero the sub-diagonal elements and , forming a triangular matrix . The orthogonal matrix is formed from the concatenation of all the Givens matrices . Thus, we have , and the QR decomposition is .
+
+We can use QR decomposition to find the absolute value of the determinant of a square matrix. Suppose a matrix is decomposed as . Then we have
+
+Since Q is unitary, . Thus,
+
+where are the entries on the diagonal of R.
+
+Furthermore, because the determinant equals the product of the eigenvalues, we have
+
+where are eigenvalues of .
+
+We can extend the above properties to non-square complex matrix by introducing the definition of QR-decomposition for non-square complex matrix and replacing eigenvalues with singular values.
+
+where is a zero matrix and is a unitary matrix.
+
+From the properties of SVD and determinant of matrix, we have
+
+where are singular values of .
+
+Note that the singular values of and are identical, although their complex eigenvalues may be different. However, if A is square, the following is true:
+
+In conclusion, QR decomposition can be used efficiently to calculate the product of the eigenvalues or singular values of a matrix.
+
+Column pivoting is useful when A is (nearly) rank deficient, or is suspected of being so. It can also improve numerical accuracy. P is usually chosen so that the diagonal elements of R are non-increasing: . This can be used to find the (numerical) rank of A at lower computational cost than a singular value decomposition, forming the basis of so-called rank-revealing QR algorithms.
+
+Compared to the direct matrix inverse, inverse solutions using QR decomposition are more numerically stable as evidenced by their reduced condition numbers [Parker, Geophysical Inverse Theory, Ch1.13].
+
+To solve the underdetermined ( ) linear problem where the matrix A has dimensions and rank , first find the QR factorization of the transpose of A: , where Q is an orthogonal matrix (i.e. ), and R has a special form: . Here is a square right triangular matrix, and the zero matrix has dimension . After some algebra, it can be shown that a solution to the inverse problem can be expressed as: where one may either find by Gaussian elimination or compute directly by forward substitution. The latter technique enjoys greater numerical accuracy and lower computations.
+
+To find a solution, , to the overdetermined ( ) problem which minimizes the norm , first find the QR factorization of A: . The solution can then be expressed as , where is an matrix containing the first columns of the full orthonormal basis and where is as before. Equivalent to the underdetermined case, back substitution can be used to quickly and accurately find this without explicitly inverting . ( and are often provided by numerical libraries as an "economic" QR decomposition.)

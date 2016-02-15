@@ -1,0 +1,9 @@
+In mathematics, the minimum k-cut, is a combinatorial optimization problem that requires finding a set of edges whose removal would partition the graph to k connected components. These edges are referred to as k-cut. The goal is to find the minimum-weight k-cut. This partitioning can have applications in VLSI design, data-mining, finite elements and communication in parallel computing.
+
+Given an undirected graph G=(V,E) with an assignment of weights to the edges w:EN and an integer k{2,3,,|V|}, partition V into k disjoint sets F={C ,C ,,C } while minimizing
+
+For a fixed k, the problem is polynomial time solvable in O(|V|k2).[1] However, the problem is NP-complete if k is part of the input.[2] It is also NP-complete if we specify vertices and ask for the minimum -cut which separates these vertices among each of the sets.[3]
+
+Several approximation algorithms exist with an approximation of 22/k. A simple greedy algorithm that achieves this approximation factor computes a minimum cut in each connected components and removes the lightest one. This algorithm requires a total of n1 max flow computations. Another algorithm achieving the same guarantee uses the GomoryHu tree representation of minimum cuts. Constructing the GomoryHu tree requires n1 max flow computations, but the algorithm requires an overall O(kn) max flow computations. Yet, it is easier to analyze the approximation factor of the second algorithm.[4][5]
+
+If we restrict the graph to a metric space, meaning a complete graph that satisfies the triangle inequality, and enforce that the output partitions are each of pre-specified sizes, the problem is approximable to within a factor of 3 for any fixedk.[6] More recently, polynomial time approximation schemes (PTAS) were discovered for those problems.[7]

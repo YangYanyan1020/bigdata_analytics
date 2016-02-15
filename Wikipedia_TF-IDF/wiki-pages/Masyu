@@ -1,0 +1,13 @@
+Masyu (, Mashu?, IPA [mau]; translates as "evil influence")[1]) is a type of logic puzzle designed and published by Nikoli. The purpose of its creation was to present a puzzle that uses no numbers or letters and yet retains depth and aesthetics.
+
+Masyu is played on a rectangular grid of squares, some of which contain circles; each circle is either "white" (empty) or "black" (filled). The goal is to draw a single continuous non-intersecting loop that properly passes through all circled cells. The loop must "enter" each cell it passes through from the center of one of its four sides and "exit" from a different side; all turns are therefore 90 degrees.[1]
+
+The two varieties of circle have differing requirements for how the loop must pass through them:
+
+The early version of Masyu first appeared in Puzzle Communication Nikoli #84 under the title of Shinju no Kubikazari (, meaning "pearl necklace"). That puzzle contains only white circles. Black circles were introduced in Puzzle Communication Nikoli #90, and the puzzle was renamed Shiroshinju Kuroshinju (, meaning "white pearls and black pearls"). This improvement deepened the puzzle and made it gain popularity. Masyu, which is originally a misreading by Nikoli's president of kanji  (shinju), and apparently became an inside joke at the Nikoli office, was adopted in Puzzle Communication Nikoli #103 to replace the old lengthy name.
+
+Understanding the nuances of the circles and how they interact with each other is the key to solving a Masyu puzzle. Generally speaking, it is easiest to start along the outside border of the grid and work inwards. Here are some basic scenarios where portions of the loop can be determined:
+
+As in other loop-construction puzzles, "short circuits" also need to be avoided: as the solution must consist of a single loop, any segment that would close a loop is forbidden unless it immediately yields the solution to the entire puzzle.
+
+Like many other combinatory and logic puzzles, Masyu can be very difficult to solve; solving Masyu on arbitrarily large grids is an NP-complete problem.[2] However, published instances of puzzles have generally been constructed in such a way that they can be solved in a reasonable amount of time.

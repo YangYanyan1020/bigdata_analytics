@@ -1,0 +1,21 @@
+Nurikabe (hiragana: ) is a binary determination puzzle named for Nurikabe, an invisible wall in Japanese folklore that blocks roads and delays foot travel. Nurikabe was apparently invented and named by Nikoli; other names (and attempts at localization) for the puzzle include Cell Structure and Islands in the Stream.
+
+The puzzle is played on a typically rectangular grid of cells, some of which contain numbers. Cells are initially of unknown color, but can only be black or white. Two same-color cells are considered "connected" if they are adjacent vertically or horizontally, but not diagonally. Connected white cells form "walls", while connected black cells form "a stream".
+
+The challenge is to paint each cell black or white, subject to the following rules:
+
+Human solvers will typically dot the non-numbered cells they've determined to be certain to belong to a wall, while trying to solve the puzzle.
+
+Like most other pure-logic puzzles, a unique solution is expected, and a grid containing random numbers is highly unlikely to provide a uniquely solvable Nurikabe puzzle.
+
+Nurikabe was first developed by "renin ()," whose pen name is the Japanese pronunciation of "Lenin" and whose autonym can be read as such, in the 33rd issue of (Puzzle Communication) Nikoli at March 1991. It soon created a sensation, and has appeared in all issues of that publication from the 38th to the present.
+
+As of 2005, seven books consisting entirely of Nurikabe puzzles have been published by Nikoli.
+
+No blind guessing should be required to solve a Nurikabe puzzle. Rather, a series of simple procedures and rules can be developed and followed, assuming the solver is sufficiently observant to find where to apply them.
+
+The greatest mistake made by beginning solvers is to concentrate solely on determining black or white and not the other; most Nurikabe puzzles require going back and forth. Marking white cells may force other cells to be black lest a section of black be isolated, and vice versa. (Those familiar with Go can think of undetermined cells next to various regions as "liberties" and apply "atari" logic to determine how they must grow.)
+
+The binary determination puzzles LITS and Mochikoro, also published by Nikoli, are similar to Nurikabe and employ similar solution methods. The binary determination puzzle Atsumari is similar to Nurikabe but based upon a hexagonal tiling rather than a square tiling.
+
+Mochikoro is a variant of the Nurikabe puzzle:

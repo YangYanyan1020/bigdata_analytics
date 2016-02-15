@@ -1,0 +1,113 @@
+In mathematics, a cyclic order is a way to arrange a set of objects in a circle.[nb] Unlike most structures in order theory, a cyclic order is not modeled as a binary relation, such as "a < b". One does not say that east is "more clockwise" than west. Instead, a cyclic order is defined as a ternary relation [a, b, c], meaning "after a, one reaches b before c". For example, [June, October, February]. A ternary relation is called a cyclic order if it is cyclic, asymmetric, transitive, and total. Dropping the "total" requirement results in a partial cyclic order.
+
+A set with a cyclic order is called a cyclically ordered set or simply a cycle.[nb] Some familiar cycles are discrete, having only a finite number of elements: there are seven days of the week, four cardinal directions, twelve notes in the chromatic scale, and three plays in rock-paper-scissors. In a finite cycle, each element has a "next element" and a "previous element". There are also continuously variable cycles with infinitely many elements, such as the oriented unit circle in the plane.
+
+Cyclic orders are closely related to the more familiar linear orders, which arrange objects in a line. Any linear order can be bent into a circle, and any cyclic order can be cut at a point, resulting in a line. These operations, along with the related constructions of intervals and covering maps, mean that questions about cyclic orders can often be transformed into questions about linear orders. Cycles have more symmetries than linear orders, and they often naturally occur as residues of linear structures, as in the finite cyclic groups or the real projective line.
+
+A cyclic order on a set X with n elements is like an arrangement of X on a clock face, for an n-hour clock. Each element x in X has a "next element" and a "previous element", and taking either successors or predecessors cycles exactly once through the elements as x(1), x(2), ..., x(n).
+
+There are a few equivalent ways to state this definition. A cyclic order on X is the same as a permutation that makes all of X into a single cycle. A cycle with n elements is also a Z -torsor: a set with a free transitive action by a finite cyclic group. Another formulation is to make X into the standard directed cycle graph on n vertices, by some matching of elements to vertices.
+
+It can be instinctive to use cyclic orders for symmetric functions, for example as in
+
+where writing the final monomial as xz would distract from the pattern.
+
+A substantial use of cyclic orders is in the determination of the conjugacy classes of free groups. Two elements g and h of the free group F on a set Y are conjugate if and only if, when they are written as products of elements y and y1 with y in Y, and then those products are put in cyclic order, the cyclic orders are equivalent under the rewriting rules that allow one to remove or add adjacent y and y1.
+
+A cyclic order on a set X can be determined by a linear order on X, but not in a unique way. Choosing a linear order is equivalent to choosing a first element, so there are exactly n linear orders that induce a given cyclic order. Since there are n! possible linear orders, there are (n  1)! possible cyclic orders.
+
+An infinite set can also be ordered cyclically. Important examples of infinite cycles include the unit circle, S1, and the rational numbers, Q. The basic idea is the same: we arrange elements of the set around a circle. However, in the infinite case we cannot rely upon an immediate successor relation, because points may not have successors. For example, given a point on the unit circle, there is no "next point". Nor can we rely upon a binary relation to determine which of two points comes "first". Traveling clockwise on a circle, neither east or west comes first, but each follows the other.
+
+Instead, we use a ternary relation denoting that elements a, b, c occur after each other (not necessarily immediately) as we go around the circle. For example, in clockwise order, [east, south, west]. By currying the arguments of the ternary relation [a, b, c], one can think of a cyclic order as a one-parameter family of binary order relations, called cuts, or as a two-parameter family of subsets of K, called intervals.
+
+The general definition is as follows: a cyclic order on a set X is a relation C  X3, written [a, b, c], that satisfies the following axioms:[nb]
+
+The axioms are named by analogy with the asymmetry, transitivity, and totality axioms for a binary relation, which together define a strict linear order. Edward Huntington(1916, 1924) considered other possible lists of axioms, including one list that was meant to emphasize the similarity between a cyclic order and a betweenness relation. A ternary relation that satisfies the first three axioms, but not necessarily the axiom of totality, is a partial cyclic order.
+
+Given a linear order < on a set X, the cyclic order on X induced by < is defined as follows:[2]
+
+Two linear orders induce the same cyclic order if they can be transformed into each other by a cyclic rearrangement, as in cutting a deck of cards. One may define a cyclic order relation as a ternary relation that is induced by a strict linear order as above.
+
+Cutting a single point out of a cyclic order leaves a linear order behind. More precisely, given a cyclically ordered set (K, [ ]), each element a  K defines a natural linear order < on the remainer of the set, K  a, by the following rule:[5]
+
+Moreover, < can be extended by adjoining a as a least element; the resulting linear order on K is called the principal cut with least element a. Likewise, adjoining a as a greatest element results in a cut <a.
+
+Given two elements a  b  K, the open interval from a to b, written (a, b), is the set of all x  K such that [a, x, b]. The system of open intervals completely defines the cyclic order and can be used as an alternate definition of a cyclic order relation.
+
+An interval (a, b) has a natural linear order given by < . One can define half-closed and closed intervals [a, b), (a, b], and [a, b] by adjoining a as a least element and/or b as a greatest element. As a special case, the open interval (a, a) is defined as the cut K  a.
+
+More generally, a proper subset S of K is called convex if it contains an interval between every pair of points: for a  b  S, either (a, b) or (b, a) must also be in S. A convex set is linearly ordered by the cut < for any x not in the set; this ordering is independent of the choice of x.
+
+As a circle has a clockwise order and a counter-clockwise order, any set with a cyclic order has two senses. A bijection of the set that preserves the order is called an ordered correspondence. If the sense is maintained as before, it is a direct correspondence, otherwise it is called an opposite correspondence.[10] Coxeter uses a separation relation to describe cyclic order, and this relation is strong enough to distinguish the two senses of cyclic order. The automorphisms of a cyclically ordered set may be identified with C , the two-element group, of direct and opposite correspondences.
+
+The "cyclic order = arranging in a circle" idea works because any subset of a cycle is itself a cycle. In order to use this idea to impose cyclic orders on sets that are not actually subsets of the unit circle in the plane, it is necessary to consider functions between sets.
+
+A function between two cyclically ordered sets, f: X  Y, is called a monotonic function or a homomorphism if it pulls back the ordering on Y: whenever [f(a), f(b), f(c)], one has [a, b, c]. Equivalently, f is monotone if whenever [a, b, c] and f(a), f(b), and f(c) are all distinct, then [f(a), f(b), f(c)]. A typical example of a monotone function is the following function on the cycle with 6 elements:
+
+A function is called an embedding if it is both monotone and injective.[nb] Equivalently, an embedding is a function that pushes forward the ordering on X: whenever [a, b, c], one has [f(a), f(b), f(c)]. As an important example, if X is a subset of a cyclically ordered set Y, and X is given its natural ordering, then the inclusion map i: X  Y is an embedding.
+
+Generally, an injective function f from an unordered set X to a cycle Y induces a unique cyclic order on X that makes f an embedding.
+
+A cyclic order on a finite set X can be determined by an injection into the unit circle, X  S1. There are many possible functions that induce the same cyclic orderin fact, infinitely many. In order to quantify this redundancy, it takes a more complex combinatorial object than a simple number. Examining the configuration space of all such maps leads to the definition of an (n  1)-dimensional polytope known as a cyclohedron. Cyclohedra were first applied to the study of knot invariants; they have more recently been applied to the experimental detection of periodically expressed genes in the study of biological clocks.
+
+The category of homomorphisms of the standard finite cycles is called the cyclic category; it may be used to construct Alain Connes' cyclic homology.
+
+One may define a degree of a function between cycles, analogous to the degree of a continuous mapping. For example, the natural map from the circle of fifths to the chromatic circle is a map of degree 7. One may also define a rotation number.
+
+The set of all cuts is cyclically ordered by the following relation: [< , < , < ] if and only if there exist x, y, z such that:
+
+A certain subset of this cycle of cuts is the Dedekind completion of the original cycle.
+
+Starting from a cyclically ordered set K, one may form a linear order by unrolling it along an infinite line. This captures the intuitive notion of keeping track of how many times one goes around the circle. Formally, one defines a linear order on the Cartesian product Z  K, where Z is the set of integers, by fixing an element a and requiring that for all i:[18]
+
+For example, the months January 2016, May 2016, September 2016, and January 2017 occur in that order.
+
+This ordering of Z  K is called the universal cover of K.[nb] Its order type is independent of the choice of a, but the notation is not, since the integer coordinate "rolls over" at a. For example, although the cyclic order of pitch classes is compatible with the A-to-G alphabetical order, C is chosen to be the first note in each octave, so in note-octave notation, B is followed by C .
+
+The inverse construction starts with a linearly ordered set and coils it up into a cyclically ordered set. Given a linearly ordered set L and an order-preserving bijection T: L  L with unbounded orbits, the orbit space L / T is cyclically ordered by the requirement:[nb]
+
+In particular, one can recover K by defining T(x ) = x on Z  K.
+
+There are also n-fold coverings for finite n; in this case, one cyclically ordered set covers another cyclically ordered set. For example, the 24-hour clock is a double cover of the 12-hour clock. In geometry, the pencil of rays emanating from a point in the oriented plane is a double cover of the pencil of unoriented lines passing through the same point.[19] These covering maps can be characterized by lifting them to the universal cover.
+
+Given a cyclically ordered set (K, [ ]) and a linearly ordered set (L, <), the (total) lexicographic product is a cyclic order on the product set K  L, defined by [(a, x), (b, y), (c, z)] if one of the following holds:
+
+The lexicographic product K  L globally looks like K and locally looks like L; it can be thought of as K copies of L. This construction is sometimes used to characterize cyclically ordered groups.
+
+One can also glue together different linearly ordered sets to form a circularly ordered set. For example, given two linearly ordered sets L and L , one may form a circle by joining them together at positive and negative infinity. A circular order on the disjoint union L  L  {, } is defined by  < L <  < L < , where the induced ordering on L is the opposite of its original ordering. For example, the set of all longitudes is circularly ordered by joining together all points west and all points east, along with the prime meridian and the 180th meridian. Kuhlmann, Marshall & Osiak (2011) use this construction while characterizing the spaces of orderings and real places of double formal Laurent series over a real closed field.
+
+The open intervals form a base for a natural topology, the cyclic order topology. The open sets in this topology are exactly those sets which are open in every compatible linear order. To illustrate the difference, in the set [0, 1), the subset [0, 1/2) is a neighborhood of 0 in the linear order but not in the cyclic order.
+
+Interesting examples of cyclically ordered spaces include the conformal boundary of a simply connected Lorentz surface and the leaf space of a lifted essential lamination of certain 3-manifolds. Discrete dynamical systems on cyclically ordered spaces have also been studied.
+
+The interval topology forgets the original orientation of the cyclic order. This orientation can be restored by enriching the intervals with their induced linear orders; then one has a set covered with an atlas of linear orders that are compatible where they overlap. In other words, a cyclically ordered set can be thought of as a locally linearly ordered space: an object like a manifold, but with order relations instead of coordinate charts. This viewpoint makes it easier to be precise about such concepts as covering maps. The generalization to a locally partially ordered space is studied in Roll (1993); see also Directed topology.
+
+A cyclically ordered group is a set with both a group structure and a cyclic order, such that left and right multiplication both preserve the cyclic order. Cyclically ordered groups were first studied in depth by Ladislav Rieger in 1947. They are a generalization of cyclic groups: the infinite cyclic group Z and the finite cyclic groups Z/n. Since a linear order induces a cyclic order, cyclically ordered groups are also a generalization of linearly ordered groups: the rational numbers Q, the real numbers R, and so on. Some of the most important cyclically ordered groups fall into neither previous category: the circle group T and its subgroups, such as the subgroup of rational points.
+
+Every cyclically ordered group can be expressed as a quotient L / Z, where L is a linearly ordered group and Z is a cyclic cofinal subgroup of L. Every cyclically ordered group can also be expressed as a subgroup of a product T  L, where L is a linearly ordered group. If a cyclically ordered group is Archimedean or compact, it can be embedded in T itself.
+
+A partial cyclic order is a ternary relation that generalizes a (total) cyclic order in the same way that a partial order generalizes a total order. It is cyclic, asymmetric, and transitive, but it need not be total. An order variety is a partial cyclic order that satisfies an additional spreading axiom. Replacing the asymmetry axiom with a complementary version results in the definition of a co-cyclic order. Appropriately total co-cyclic orders are related to cyclic orders in the same way that  is related to <.
+
+A cyclic order obeys a relatively strong 4-point transitivity axiom. One structure that weakens this axiom is a CC system: a ternary relation that is cyclic, asymmetric, and total, but generally not transitive. Instead, a CC system must obey a 5-point transitivity axiom and a new interiority axiom, which constrains the 4-point configurations that violate cyclic transitivity.
+
+A cyclic order is required to be symmetric under cyclic permutation, [a, b, c]  [b, c, a], and asymmetric under reversal: [a, b, c]  [c, b, a]. A ternary relation that is asymmetric under cyclic permutation and symmetric under reversal, together with appropriate versions of the transitivity and totality axioms, is called a betweenness relation. A separation relation is a quaternary relation that can be thought of as a cyclic order without an orientation. The relationship between a circular order and a separation relation is analogous to the relationship between a linear order and a betweenness relation.
+
+Evans, Macpherson & Ivanov (1997) provide a model-theoretic description of the covering maps of cycles.
+
+Tararin(2001, 2001) studies groups of automorphisms of cycles with various transitivity properties. Giraudet & Holland (2002) characterize cycles whose full automorphism groups act freely and transitively. Campero-Arena & Truss (2009) characterize countable colored cycles whose automorphism groups act transitively. Truss (2009) studies the automorphism group of the unique (up to isomorphism) countable dense cycle.
+
+Kulpeshov & Macpherson (2005) study minimality conditions on circularly ordered structures, i.e. models of first-order languages that include a cyclic order relation. These conditions are analogues of o-minimality and weak o-minimality for the case of linearly ordered structures. Kulpeshov(2006, 2009) continues with some characterizations of -categorical structures.
+
+Hans Freudenthal has emphasized the role of cyclic orders in cognitive development, as a contrast to Jean Piaget who addresses only linear orders. Some experiments have been performed to investigate the mental representations of cyclically ordered sets, such as the months of the year.
+
+^cyclic order The relation may be called a cyclic order (Huntington 1916, p.630), a circular order (Huntington 1916, p.630), a cyclic ordering (Kok 1973, p.6), or a circular ordering (Mosher 1996, p.109). Some authors call such an ordering a total cyclic order (Isli & Cohn 1998, p.643), a complete cyclic order (Novk 1982, p.462), a linear cyclic order (Novk 1984, p.323), or an l-cyclic order or -cyclic order (ernk 2001, p.32), to distinguish from the broader class of partial cyclic orders, which they call simply cyclic orders. Finally, some authors may take cyclic order to mean an unoriented quaternary separation relation (Bowditch 1998, p.155).
+
+^cycle A set with a cyclic order may be called a cycle (Novk 1982, p.462) or a circle (Giraudet & Holland 2002, p.1). The above variations also appear in adjective form: cyclically ordered set (cyklicky uspodan mnoiny, ech 1936, p.23), circularly ordered set, total cyclically ordered set, complete cyclically ordered set, linearly cyclically ordered set, l-cyclically ordered set, -cyclically ordered set. All authors agree that a cycle is totally ordered.
+
+^ternary relation There are a few different symbols in use for a cyclic relation. Huntington (1916, p.630) uses concatenation: ABC. ech (1936, p.23) and (Novk 1982, p.462) use ordered triples and the set membership symbol: (a, b, c)  C. Megiddo (1976, p.274) uses concatenation and set membership: abc  C, understanding abc as a cyclically ordered triple. The literature on groups, such as wierczkowski (1959a, p.162) and ernk & Jakubk (1987, p.157), tend to use square brackets: [a, b, c]. Giraudet & Holland (2002, p.1) use round parentheses: (a, b, c), reserving square brackets for a betweenness relation. Campero-Arena & Truss (2009, p.1) use a function-style notation: R(a, b, c). Rieger (1947), cited after Pecinov 2008, p.82) uses a "less-than" symbol as a delimiter: < x, y, z <. Some authors use infix notation: a < b < c, with the understanding that this does not carry the usual meaning of a < b and b < c for some binary relation < (erny 1978, p.262). Weinstein (1996, p.81) emphasizes the cyclic nature by repeating an element: p  r  q  p.
+
+^roll In this case, Giraudet & Holland (2002, p.2) write that K is L "rolled up".
+
+^orbit space The map T is called archimedean by Bowditch (2004, p.33), coterminal by Campero-Arena & Truss (2009, p.582), and a translation by McMullen (2009, p.10).
+
+^universal cover McMullen (2009, p.10) calls Z  K the "universal cover" of K. Giraudet & Holland (2002, p.3) write that K is Z  K "coiled". Freudenthal & Bauer (1974, p.10) call Z  K the "-times covering" of K. Often this construction is written as the anti-lexicographic order on K  Z.

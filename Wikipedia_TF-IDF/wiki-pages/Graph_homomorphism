@@ -1,0 +1,25 @@
+In the mathematical field of graph theory a graph homomorphism is a mapping between two graphs that respects their structure. More concretely it maps adjacent vertices to adjacent vertices.
+
+A graph homomorphism from a graph to a graph , written , is a mapping from the vertex set of to the vertex set of such that implies .
+
+The above definition is extended to directed graphs. Then, for a homomorphism , is an arc of if is an arc of .
+
+If there exists a homomorphism we shall write , and otherwise. If , is said to be homomorphic to or -colourable.
+
+If the homomorphism is a bijection whose inverse function is also a graph homomorphism, then is a graph isomorphism.
+
+Two graphs and are homomorphically equivalent if and .
+
+A retract of a graph is a subgraph of such that there exists a homomorphism , called retraction with for any vertex of . A core is a graph which does not retract to a proper subgraph. Any graph is homomorphically equivalent to a unique core.
+
+The composition of homomorphisms are homomorphisms.
+
+The tensor product of graphs is the category-theoretic product for the category of graphs and graph homomorphisms.
+
+A graph coloring is an assignment of one of k colors to each vertex of a graph G so that the endpoints of each edge have different colors, for some number k. Any coloring corresponds to a homomorphism from G to a complete graph K : the vertices of K correspond to the colors of G, and f maps each vertex of G with color c to the vertex of K that corresponds toc. This is a valid homomorphism because the endpoints of each edge of G are mapped to distinct vertices of K , and every two distinct vertices of K are connected by an edge, so every edge in G is mapped to an adjacent pair of vertices in K . Conversely if f is a homomorphism from G to K , then one can color G by using the same color for two vertices in G whenever they are both mapped to the same vertex in K . Because K has no edges that connect a vertex to itself, it is not possible for two adjacent vertices in G to both be mapped to the same vertex in K , so this gives a valid coloring. That is, G has a k-coloring if and only if it has a homomorphism to K .
+
+If there are two homomorphisms , then their composition is also a homomorphism. In other words, if a graph G can be colored with k colors, and there is a homomorphism , then H can also be k-colored. Therefore, whenever a homomorphism exists, the chromatic number of H is less than or equal to the chromatic number of G.
+
+Homomorphisms can also be used very similarly to characterize the odd girth of a graph G, the length of its shortest odd-length cycle. The odd girth is, equivalently, the smallest odd number g for which there exists a homomorphism . For this reason, if , then the odd girth of G is greater than or equal to the corresponding invariant of H.[1]
+
+The associated decision problem, i.e. deciding whether there exists a homomorphism from one graph to another, is NP-complete. Determining whether there is an isomorphism between two graphs is also an important problem in computational complexity theory; see graph isomorphism problem.

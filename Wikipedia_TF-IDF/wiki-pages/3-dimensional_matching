@@ -1,0 +1,29 @@
+In the mathematical discipline of graph theory, a 3-dimensional matching is a generalization of bipartite matching (a.k.a. 2-dimensional matching) to 3-uniform hypergraphs. Finding a largest 3-dimensional matching is a well-known NP-hard problem in computational complexity theory.
+
+Let X, Y, and Z be finite, disjoint sets, and let T be a subset of XYZ. That is, T consists of triples (x,y,z) such that xX, yY, and zZ. Now MT is a 3-dimensional matching if the following holds: for any two distinct triples (x ,y ,z )M and (x ,y ,z )M, we have x x , y y , and z z .
+
+The figure on the right illustrates 3-dimensional matchings. The set X is marked with red dots, Y is marked with blue dots, and Z is marked with green dots. Figure(a) shows the set T (gray areas). Figure(b) shows a 3-dimensional matching M with |M|=2, and Figure(c) shows a 3-dimensional matching M with |M|=3.
+
+The matching M illustrated in Figure(c) is a maximum 3-dimensional matching, i.e., it maximises |M|. The matching illustrated in Figures(b)(c) are maximal 3-dimensional matchings, i.e., they cannot be extended by adding more elements from T.
+
+A 2-dimensional matching can be defined in a completely analogous manner. Let X and Y be finite, disjoint sets, and let T be a subset of XY. Now MT is a 2-dimensional matching if the following holds: for any two distinct pairs (x ,y )M and (x ,y )M, we have x x and y y .
+
+In the case of 2-dimensional matching, the set T can be interpreted as the set of edges in a bipartite graph G=(X,Y,T); each edge in T connects a vertex in X to a vertex in Y. A 2-dimensional matching is then a matching in the graph G, that is, a set of pairwise non-adjacent edges.
+
+Hence 3-dimensional matchings can be interpreted as a generalization of matchings to hypergraphs: the sets X, Y, and Z contain the vertices, each element of T is a hyperedge, and the set M consists of pairwise non-adjacent edges (edges that do not have a common vertex). In case of 2-dimensional matching, we have Y=Z.
+
+A 3-dimensional matching is a special case of a set packing: we can interpret each element (x,y,z) of T as a subset {x,y,z} of XYZ; then a 3-dimensional matching M consists of pairwise disjoint subsets.
+
+In computational complexity theory, 3-dimensional matching is also the name of the following decision problem: given a set T and an integer k, decide whether there exists a 3-dimensional matching MT with |M|k.
+
+This decision problem is known to be NP-complete; it is one of Karp's 21 NP-complete problems.[1] There exist though polynomial time algorithms for that problem for dense hypergraphs.[2][3]
+
+The problem is NP-complete even in the special case that k=|X|=|Y|=|Z|.[1][4][5] In this case, a 3-dimensional (dominating) matching is not only a set packing but also an exact cover: the set M covers each element of X, Y, and Z exactly once.[6]
+
+A maximum 3-dimensional matching is a largest 3-dimensional matching. In computational complexity theory, this is also the name of the following optimization problem: given a set T, find a 3-dimensional matching MT that maximizes |M|.
+
+Since the decision problem described above is NP-complete, this optimization problem is NP-hard, and hence it seems that there is no polynomial-time algorithm for finding a maximum 3-dimensional matching. However, there are efficient polynomial-time algorithms for finding a maximum bipartite matching (maximum 2-dimensional matching), for example, the HopcroftKarp algorithm.
+
+The problem is APX-complete, that is, it is hard to approximate within some constant.[7][8][9] On the positive side, for any constant >0 there is a polynomial-time (3/2+)-approximation algorithm for 3-dimensional matching.[7][8]
+
+There is a very simple polynomial-time 3-approximation algorithm for 3-dimensional matching: find any maximal 3-dimensional matching.[9] Just like a maximal matching is within factor 2 of a maximum matching,[10] a maximal 3-dimensional matching is within factor 3 of a maximum 3-dimensional matching.

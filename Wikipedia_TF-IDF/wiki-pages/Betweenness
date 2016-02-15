@@ -1,0 +1,25 @@
+Betweenness is an algorithmic problem in order theory about ordering a collection of items subject to constraints that some items must be placed between others.[1] It has applications in bioinformatics,[2] but was shown to be NP-complete by Opatrn (1979).[3]
+
+The input to a betweenness problem is a collection of ordered triples of items. The items listed in these triples should be placed into a total order, with the property that for each of the given triples, the middle item in the triple appears in the output somewhere between the other two items. The items of each triple are not required to be consecutive in the output.[1][3]
+
+As an example, the collection of input triples
+
+is satisfied by the output ordering
+
+but not by
+
+In the first of these output orderings, for all five of the input triples, the middle item of the triple appears between the other two items However, for the second output ordering, item 4 is not between items 1 and 2, contradicting the requirement given by the triple (2,4,1).
+
+If an input contains two triples like (1,2,3) and (2,3,1) with the same three items but a different choice of the middle item, then there is no valid solution. However, there are more complicated ways of forming a set of triples with no valid solution, that do not contain such a pair of contradictory triples.
+
+Opatrn (1979) showed that the decision version of the betweenness problem (in which an algorithm must decide whether or not there exists a valid solution) is NP-complete in two ways, by a reduction from 3-satisfiability and also by a different reduction from hypergraph 2-coloring.[3] However, it can easily be solved when all unordered triples of items are represented by an ordered triple of the input, by choosing one of the two items that are not between any others to be the start of the ordering and then using the triples involving this item to compare the relative positions of each pair of remaining items.
+
+The related problem of finding an ordering that maximizes the number of satisfied triples is MAXSNP-hard, implying that it is impossible to achieve an approximation ratio arbitrarily close to1 in polynomial time unless P = NP.[1] It remains hard to solve or approximate even for dense instances that include an ordered triple for each possible unordered triple of items.[4] One can achieve an approximation ratio of 1/3 (in expectation) by ordering the items randomly, and this simple strategy gives the best possible polynomial-time approximation if the unique games conjecture is true.[5] It is also possible to use semidefinite programming or combinatorial methods to find an ordering that satisfies at least half of the triples of any satisfiable instance, in polynomial time.[1][6]
+
+In parameterized complexity, the problem of satisfying as many constraints as possible from a set C of constraints is fixed-parameter tractable when parameterized by the difference q|C|/3 between the solution quality q found by the parameterized algorithm and the |C|/3 quality guaranteed in expectation by a random ordering.[7]
+
+Although not guaranteed to succeed, a greedy heuristic can find solutions to many instances of the betweenness problem arising in practice.[2]
+
+One application of betweenness arises in bioinformatics, as part of the process of gene mapping. Certain types of genetic experiments can be used to determine the ordering of triples of genetic markers, but do not distinguish a genetic sequence from its reversal, so the information yielded from such an experiment determines only which one out of three markers is the middle one. The betweenness problem is an abstraction of the problem of assembling a collection of markers into a single sequence given experimental data of this type.[1][2]
+
+The betweenness problem has also been used to model theories of probability, causality, and time.[8]

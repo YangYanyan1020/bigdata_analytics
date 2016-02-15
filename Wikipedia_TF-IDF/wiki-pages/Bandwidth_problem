@@ -1,0 +1,35 @@
+In graph theory, the graph bandwidth problem is to label the n vertices v of a graph G with distinct integers f(v ) so that the quantity is minimized (E is the edge set of G).[1] The problem may be visualized as placing the vertices of a graph at distinct integer points along the x-axis so that the length of the longest edge is minimized. Such placement is called linear graph arrangement, linear graph layout or linear graph placement.[2]
+
+The weighted graph bandwidth problem is a generalization wherein the edges are assigned weights w and the cost function to be minimized is .
+
+In terms of matrices, the (unweighted) graph bandwidth is the bandwidth of the symmetric matrix which is the adjacency matrix of the graph. The bandwidth may also be defined as one less than the maximum clique size in a proper interval supergraph of the given graph, chosen to minimize its clique size (Kaplan & Shamir 1996).
+
+For several families of graphs, the bandwidth is given by an explicit formula.
+
+The bandwidth of a path graph P on n vertices is1, and for a complete graph K we have . For the complete bipartite graph K ,
+
+which was proved by Chvtal.[3] As a special case of this formula, the star graph on k+1 vertices has bandwidth .
+
+For the hypercube graph on vertices the bandwidth was determined by Harper (1966) to be
+
+Chvatlov showed[4] that the bandwidth of the mn square grid graph , that is, the Cartesian product of two path graphs on and vertices, is equal tomin{m,n}.
+
+The bandwidth of a graph can be bounded in terms of various other graph parameters. For instance, letting (G) denote the chromatic number of G,
+
+letting diam(G) denote the diameter of G, the following inequalities hold:[5]
+
+where is the number of vertices in .
+
+If a graph G has bandwidth k, then its pathwidth is at most k (Kaplan & Shamir 1996), and its tree-depth is at most klog(n/k) (Gruber 2012). In contrast, as noted in the previous section, the star graph S , a structurally very simple example of a tree, has comparatively large bandwidth. Observe that the pathwidth of S is1, and its tree-depth is2.
+
+Some graph families of bounded degree have sublinear bandwidth: Chung (1988) proved that if T is a tree of maximum degree at most , then
+
+More generally, for planar graphs of bounded maximum degree at most , a similar bound holds (cf. Bttcher et al. 2010):
+
+Both the unweighted and weighted versions are special cases of the quadratic bottleneck assignment problem. The bandwidth problem is NP-hard, even for some special cases.[6] Regarding the existence of efficient approximation algorithms, it is known that the bandwidth is NP-hard to approximate within any constant, and this even holds when the input graphs are restricted to caterpillar trees (Dubey, Feige & Unger 2010). For the case of dense graphs, a 3-approximation algorithm was designed by Karpinski, Wirtgen & Zelikovsky (1997). On the other hand, a number of polynomially-solvable special cases are known.[2] A heuristic algorithm for obtaining linear graph layouts of low bandwidth is the CuthillMcKee algorithm. Fast multilevel algorithm for graph bandwidth computation was proposed in.[7]
+
+The interest in this problem comes from some application areas.
+
+One area is sparse matrix/band matrix handling, and general algorithms from this area, such as CuthillMcKee algorithm, may be applied to find approximate solutions for the graph bandwidth problem.
+
+Another application domain is in electronic design automation. In standard cell design methodology, typically standard cells have the same height, and their placement is arranged in a number of rows. In this context, graph bandwidth problem models the problem of placement of a set of standard cells in a singe row with the goal of minimizing the maximal propagation delay (which is assumed to be proportional to wire length).

@@ -1,0 +1,45 @@
+Flow shop scheduling problems, are a class of scheduling problems with a workshop or group shop in which the flow control shall enable an appropriate sequencing for each job and for processing on a set of machines or with other resources 1,2,...,m in compliance with given processing orders. Especially the maintaining of a continuous flow of processing tasks is desired with a minimum of idle time and a minimum of waiting time. Flow shop scheduling is a special case of job shop scheduling where there is strict order of all operations to be performed on all jobs. Flow shop scheduling may apply as well to production facilities as to computing designs.
+
+A special type of flow shop scheduling problem is the permutation flow shop scheduling problem in which the processing order of the jobs on the resources is the same for each subsequent step of processing.
+
+There are n machines and m jobs. Each job contains exactly n operations. The i-th operation of the job must be executed on the i-th machine. No machine can perform more than one operation simultaneously. For each operation of each job, execution time is specified.
+
+Operations within one job must be performed in the specified order. The first operation gets executed on the first machine, then (as the first operation is finished) the second operation on the second machine, and so until the n-th operation. Jobs can be executed in any order, however. Problem definition implies that this job order is exactly the same for each machine. The problem is to determine the optimal such arrangement, i.e. the one with the shortest possible total job execution makespan. [1]
+
+The sequencing problem can be stated as determining a sequence S such that one or several sequencing objectives are optimized.
+
+detailed discussion of performance measurement can be found in Malakooti (2013).
+
+As presented by Garey et al. (1976), most of extensions of the flow shop scheduling problems are NP-Hard and few of them can be solved optimally in O(nlogn), for example F2|prmu|C can be solved optimally by using Johnson's Rule.
+
+The proposed methods to solve flow shop scheduling problems can be classified as exact algorithm such as Branch and Bound and Heuristic algorithm such as genetic algorithm.
+
+F2|prmu|C and F3|prmu|C can be solved optimally by using Johnson's Rule (1954) but for general case there is no algorithm that guarantee the optimality of the solution.
+
+ Here is minimization using Johnson's Rule:
+
+ The flow shop contains n jobs simultaneously available at time zero and to be processed by two machines arranged in series with unlimited storage in between them. The processing time of all jobs are known with certainty. It is required to schedule n jobs on machines so as to minimize makespan. The Johnson's rule for scheduling jobs in two machine flow shop is given below: In an optimal schedule, job i precedes job j if min{p ,p } < min{p ,p }. Where as, p is the processing time of job i on machine 1 and p is the processing time of job i on machine 2. Similarly, p and p are processing times of job j on machine 1 and machine 2 respectively.
+
+ The steps are summarized below for Johnson's algorithms:
+
+ let, p =processing time of job j on machine 1
+
+ p =processing time of job j on machine 2
+
+ Johnson's Algorithm
+
+ Step 1:Form set1 containing all the jobs with p < p 
+
+ Step 2:Form set2 containing all the jobs with p > p ,the jobs with p =p may be put in either set.
+
+ Step 3: Form the sequence as follows:
+
+ i) The job in set1 go first in the sequence and they go in increasing order of p (SPT)
+
+ ii) The jobs in set2 follow in decreasing order of p (LPT). Ties are broken arbitrarily.
+
+ This type schedule is referred as SPT(1)-LPT(2) schedule.
+
+So far, there is no algorithm which can guarantee optimal solution.
+
+The detailed discussion of the available solution methods are provided by Malakooti (2013).

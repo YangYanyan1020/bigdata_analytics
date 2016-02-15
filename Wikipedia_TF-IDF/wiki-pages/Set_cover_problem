@@ -1,0 +1,29 @@
+The set cover problem is a classical question in combinatorics, computer science and complexity theory. It is one of Karp's 21 NP-complete problems shown to be NP-complete in 1972.
+
+It is a problem "whose study has led to the development of fundamental techniques for the entire field" of approximation algorithms.[1]
+
+Given a set of elements (called the universe) and a collection of sets whose union equals the universe, the set cover problem is to identify the smallest sub-collection of whose union equals the universe. For example, consider the universe and the collection of sets . Clearly the union of is . However, we can cover all of the elements with the following, smaller number of sets: .
+
+More formally, given a universe and a family of subsets of , a cover is a subfamily of sets whose union is . In the set covering decision problem, the input is a pair and an integer ; the question is whether there is a set covering of size or less. In the set covering optimization problem, the input is a pair , and the task is to find a set covering that uses the fewest sets.
+
+The decision version of set covering is NP-complete, and the optimization/search version of set cover is NP-hard .
+
+If each set is assigned a cost, it becomes a weighted set cover problem.
+
+The minimum set cover problem can be formulated as the following integer linear program (ILP).[3]
+
+This ILP belongs to the more general class of ILPs for covering problems. The integrality gap of this ILP is at most , so its relaxation gives a factor- approximation algorithm for the minimum set cover problem (where is the size of the universe).[4]
+
+Set covering is equivalent to the hitting set problem. It is easy to see this by observing that an instance of set covering can be viewed as an arbitrary bipartite graph, with sets represented by vertices on the left, the universe represented by vertices on the right, and edges representing the inclusion of elements in sets. The task is then to find a minimum cardinality subset of left-vertices which covers all of the right-vertices. In the Hitting set problem, the objective is to cover the left-vertices using a minimum subset of the right vertices. Converting from one problem to the other is therefore achieved by interchanging the two sets of vertices.
+
+There is a greedy algorithm for polynomial time approximation of set covering that chooses sets according to one rule: at each stage, choose the set that contains the largest number of uncovered elements. It can be shown[5] that this algorithm achieves an approximation ratio of , where is the size of the set to be covered. In other words, it finds a covering that may be times as large as the minimum one, where is the -th harmonic number:
+
+This greedy algorithm actually achieves an approximation ratio of where is the maximum cardinality set of . For -dense instances, there exists, however, a -approximation algorithm for every .[6]
+
+There is a standard example on which the greedy algorithm achieves an approximation ratio of . The universe consists of elements. The set system consists of pairwise disjoint sets with sizes respectively, as well as two additional disjoint sets , each of which contains half of the elements from each . On this input, the greedy algorithm takes the sets , in that order, while the optimal solution consists only of and . An example of such an input for is pictured on the right.
+
+Inapproximability results show that the greedy algorithm is essentially the best-possible polynomial time approximation algorithm for set cover up to lower order terms (see Inapproximability results below), under plausible complexity assumptions. A tighter analysis for the greedy algorithm shows that the approximation ratio is in fact .[7]
+
+If each element occurs in at most f sets, then a solution can be found in polynomial time that approximates the optimum to within a factor of f using LP relaxation.[8]
+
+When refers to the size of the universe, Lund & Yannakakis (1994) showed that set covering cannot be approximated in polynomial time to within a factor of , unless NP has quasi-polynomial time algorithms. Feige (1998) improved this lower bound to under the same assumptions, which essentially matches the approximation ratio achieved by the greedy algorithm. Raz & Safra (1997) established a lower bound of , where is a certain constant, under the weaker assumption that P NP. A similar result with a higher value of was recently proved by Alon, Moshkovitz & Safra (2006). Dinur & Steurer (2013) showed optimal inapproximability by proving that it cannot be approximated to unless P NP.

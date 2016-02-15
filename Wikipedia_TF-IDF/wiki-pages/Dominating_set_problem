@@ -1,0 +1,63 @@
+In graph theory, a dominating set for a graph G=(V,E) is a subset D of V such that every vertex not in D is adjacent to at least one member of D. The domination number (G) is the number of vertices in a smallest dominating set forG.
+
+The dominating set problem concerns testing whether (G)K for a given graph G and input K; it is a classical NP-complete decision problem in computational complexity theory (Garey & Johnson 1979). Therefore it is believed that there is no efficient algorithm that finds a smallest dominating set for a given graph.
+
+Figures (a)(c) on the right show three examples of dominating sets for a graph. In each example, each white vertex is adjacent to at least one red vertex, and it is said that the white vertex is dominated by the red vertex. The domination number of this graph is 2: the examples (b) and (c) show that there is a dominating set with 2 vertices, and it can be checked that there is no dominating set with only 1 vertex for this graph.
+
+As Hedetniemi & Laskar (1990) note, the domination problem was studied from the 1950s onwards, but the rate of research on domination significantly increased in the mid-1970s. Their bibliography lists over 300 papers related to domination in graphs.
+
+Let G be a graph with n1 vertices and let  be the maximum degree of the graph. The following bounds on (G) are known (Haynes, Hedetniemi & Slater 1998a, Chapter 2):
+
+Dominating sets are closely related to independent sets: an independent set is also a dominating set if and only if it is a maximal independent set, so any maximal independent set in a graph is necessarily also a minimal dominating set. Thus, the smallest maximal independent set is greater in size than the smallest independent dominating set. The independent domination number i(G) of a graph G is the size of the smallest independent dominating set (or, equivalently, the size of the smallest maximal independent set).
+
+The minimum dominating set in a graph will not necessarily be independent, but the size of a minimum dominating set is always less than or equal to the size of a minimum maximal independent set, that is, (G)i(G).
+
+There are graph families in which a minimum maximal independent set is a minimum dominating set. For example, Allan & Laskar (1978) show that (G)=i(G) if G is a claw-free graph.
+
+A graph G is called a domination-perfect graph if (H)=i(H) in every induced subgraph H of G. Since an induced subgraph of a claw-free graph is claw-free, it follows that every claw-free graphs is also domination-perfect (Faudree, Flandrin & Ryjek 1997).
+
+Figures (a) and (b) are independent dominating sets, while figure (c) illustrates a dominating set that is not an independent set.
+
+For any graph G, its line graph L(G) is claw-free, and hence a minimum maximal independent set in L(G) is also a minimum dominating set in L(G). An independent set in L(G) corresponds to a matching in G, and a dominating set in L(G) corresponds to an edge dominating set in G. Therefore a minimum maximal matching has the same size as a minimum edge dominating set.
+
+There exists a pair of polynomial-time L-reductions between the minimum dominating set problem and the set cover problem (Kann 1992, pp.108109). These reductions (see below) show that an efficient algorithm for the minimum dominating set problem would provide an efficient algorithm for the set cover problem and vice versa. Moreover, the reductions preserve the approximation ratio: for any , a polynomial-time -approximation algorithm for minimum dominating sets would provide a polynomial-time -approximation algorithm for the set cover problem and vice versa. Both problems are in fact Log-APX-complete.[1]
+
+The set cover problem is a well-known NP-hard problem  the decision version of set covering was one of Karp's 21 NP-complete problems, which were shown to be NP-complete already in 1972. Hence the reductions show that the dominating set problem is NP-hard as well.
+
+The approximability of set covering is also well understood: a logarithmic approximation factor can be found by using a simple greedy algorithm, and finding a sublogarithmic approximation factor is NP-hard. More specifically, the greedy algorithm provides a factor 1+log|V| approximation of a minimum dominating set, and Raz & Safra (1997) show that no algorithm can achieve an approximation factor better than clog|V| for some c>0 unless P=NP.
+
+The following pair of reductions (Kann 1992, pp.108109) shows that the minimum dominating set problem and the set cover problem are equivalent under L-reductions: given an instance of one problem, we can construct an equivalent instance of the other problem.
+
+From dominating set to set covering. Given a graph G=(V,E) with V={1,2,...,n}, construct a set cover instance (U,S) as follows: the universe U is V, and the family of subsets is S={S , S , ..., S } such that S consists of the vertex v and all vertices adjacent to v in G.
+
+Now if D is a dominating set for G, then C={S :vD} is a feasible solution of the set cover problem, with |C|=|D|. Conversely, if C={S :vD} is a feasible solution of the set cover problem, then D is a dominating set for G, with |D|=|C|.
+
+Hence the size of a minimum dominating set for G equals the size of a minimum set cover for (U,S). Furthermore, there is a simple algorithm that maps a dominating set to a set cover of the same size and vice versa. In particular, an efficient -approximation algorithm for set covering provides an efficient -approximation algorithm for minimum dominating sets.
+
+From set covering to dominating set. Let (S,U) be an instance of the set cover problem with the universe U and the family of subsets S={S :iI}; we assume that U and the index set I are disjoint. Construct a graph G=(V,E) as follows: the set of vertices is V=IU, there is an edge {i,j}E between each pair i,jI, and there is also an edge {i,u} for each iI and uS . That is, G is a split graph: I is a clique and U is an independent set.
+
+Now if C={S :iD} is a feasible solution of the set cover problem for some subset DI, then D is a dominating set for G, with |D|=|C|: First, for each uU there is an iD such that uS , and by construction, u and i are adjacent in G; hence u is dominated by i. Second, since D must be nonempty, each iI is adjacent to a vertex in D.
+
+Conversely, let D be a dominating set for G. Then it is possible to construct another dominating set X such that |X||D| and XI: simply replace each uDU by a neighbour iI of u. Then C={S :iX} is a feasible solution of the set cover problem, with |C|=|X||D|.
+
+If the graph has maximum degree , then the greedy approximation algorithm finds an O(log)-approximation of a minimum dominating set. Also, let d be the cardinality of dominating set obtained using greedy approximation then following relation holds, d  N+1 - , where N is number of nodes and M is number of edges in given undirected graph.[2] For fixed , this is qualifies Dominating Set for APX membership; in fact, it is APX-complete.[3]
+
+The problem admits a PTAS for special cases such as unit disk graphs and planar graphs (Crescenzi et al. 2000). A minimum dominating set can be found in linear time in series-parallel graphs (Takamizawa, Nishizeki & Saito 1982).
+
+A minimum dominating set of an n-vertex graph can be found in time O(2nn) by inspecting all vertex subsets. Fomin, Grandoni & Kratsch (2009) show how to find a minimum dominating set in time O(1.5137n) and exponential space, and in time O(1.5264n) and polynomial space. A faster algorithm, using O(1.5048n) time was found by van Rooij, Nederlof & van Dijk (2009), who also show that the number of minimum dominating sets can be computed in this time. The number of minimal dominating sets is at most 1.7159n and all such sets can be listed in time O(1.7159n) (Fomin et al. 2008) .
+
+Finding a dominating set of size k plays a central role in the theory of parameterized complexity. It is the most well-known problem complete for the class W[2] and used in many reductions to show intractability of other problems. In particular, the problem is not fixed-parameter tractable in the sense that no algorithm with running time f(k)nO(1) for any function f exists unless the W-hierarchy collapses to FPT=W[2].
+
+On the other hand, if the input graph is planar, the problem remains NP-hard, but a fixed-parameter algorithm is known. In fact, the problem has a kernel of size linear in k (Alber, Fellows & Niedermeier 2004), and running times that are exponential in k and cubic in n may be obtained by applying dynamic programming to a branch-decomposition of the kernel (Fomin & Thilikos 2006). More generally, the dominating set problem and many variants of the problem are fixed-parameter tractable when parameterized by both the size of the dominating set and the size of the smallest forbidden complete bipartite subgraph; that is, the problem is FPT on biclique-free graphs, a very general class of sparse graphs that includes the planar graphs (Telle & Villanger 2012).
+
+Vizing's conjecture relates the domination number of a cartesian product of graphs to the domination number of its factors.
+
+There has been much work on connected dominating sets. If S is a connected dominating set, one can form a spanning tree of G in which S forms the set of non-leaf vertices of the tree; conversely, if T is any spanning tree in a graph with more than two vertices, the non-leaf vertices of T form a connected dominating set. Therefore, finding minimum connected dominating sets is equivalent to finding spanning trees with the maximum possible number of leaves.
+
+A total dominating set is a set of vertices such that all vertices in the graph (including the vertices in the dominating set themselves) have a neighbor in the dominating set. Figure (c) above shows a dominating set that is a connected dominating set and a total dominating set; the examples in figures (a) and (b) are neither.
+
+A k-tuple dominating set is a set of vertices such that each vertex in the graph has at least k neighbors in the set. An (1+logn)-approximation of a minimum k-tuple dominating set can be found in polynomial time (Klasing & Laforest 2004). Similarly, a k-dominating set is a set of vertices such that each vertex not in the set has at least k neighbors in the set. While every graph admits a k-dominating set, only graphs with minimum degree k-1 admit a k-tuple dominating set. However, even if the graph admits k-tuple dominating set, a minimum k-tuple dominating set can be nearly k times larger than a minimum k-dominating set for the same graph (Frster 2013); An (1.7+log)-approximation of a minimum k-dominating set can be found in polynomial time as well.
+
+A domatic partition is a partition of the vertices into disjoint dominating sets. The domatic number is the maximum size of a domatic partition.
+
+An Eternal dominating set is a dynamic version of domination in which a vertex v in dominating set D is chosen and replaced with a neighbor u (u is not in D) such that the modified D is also a dominating set and this process can be repeated over any infinite sequence of choices of vertices v.

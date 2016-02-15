@@ -1,0 +1,11 @@
+The berth allocation problem (also known as the berth scheduling problem) is a NP-complete problem in operations research, regarding the allocation of berth space for vessels in container terminals. Vessels arrive over time and the terminal operator needs to assign them to berths to be served (loading and unloading containers) as soon as possible. Different factors affect the berth and time assignment of each vessel.
+
+Among models found in the literature, there are four most frequently observed cases:
+
+In the discrete problem, the quay is viewed as a finite set of berths. In the continuous problem, vessels can berth anywhere along the quay and the majority of research deals with the former case. In the static arrival problem all vessels are already at the port whereas in the dynamic only a portion of the vessels to be scheduled are present. The majority of the published research in berth scheduling considers the latter case. In the static handling time problem, vessel handling times are considered as input, whereas in the dynamic they are decision variables. Finally, in the last case, the vessel arrival times are considered as variables and are optimized.
+
+Technical restrictions such as berthing draft and inter-vessel and end-berth clearance distance are further assumptions that have been adopted in some of the studies dealing with the berth allocation problem, bringing the problem formulation closer to real world conditions. Introducing technical restrictions to existing berth allocation models is rather straightforward and it may increase the complexity of the problem but simplify the use of metaheuristics (decrease in the feasible space).
+
+Some of the most notable objectives addressed in the literature are:
+
+Problems have been formulated as single and multi-objective as well as single and bi-level.

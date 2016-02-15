@@ -1,0 +1,9 @@
+The Hamiltonian completion problem is to find the minimal number of edges to add to a graph to make it Hamiltonian.
+
+The problem is clearly NP-hard in general case (since its solution gives an answer to the NP-complete problem of determining whether a given graph has a Hamiltonian cycle). The associated decision problem of determining whether K edges can be added to a given graph to produce a Hamiltonian graph is NP-complete.
+
+Moreover, Hamiltonian completion belongs to the APX complexity class, i.e., it is unlikely that efficient constant ratio approximation algorithms exist for this problem.[1]
+
+The problem may be solved in polynomial time for certain classes of graphs, including series-parallel graphs[2] and their generalizations,[3] which include outerplanar graphs, as well as for a line graph of a tree[4][5] or a cactus graph.[6]
+
+Gamarnik et al. use a linear time algorithm for solving the problem on trees to study the asymptotic number of edges that must be added for sparse random graphs to make them Hamiltonian.[7]

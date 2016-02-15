@@ -1,0 +1,29 @@
+The Eternity II puzzle, aka E2 or E II, is a puzzle competition which was released on 28 July 2007.[1] It was published by Christopher Monckton, and is marketed and copyrighted by TOMY UK Ltd. A $2 million prize was offered for the first complete solution. The competition ended at noon on 31 December 2010, with no solution being found.
+
+The Eternity II puzzle is an edge-matching puzzle which involves placing 256 square puzzle pieces into a 16 by 16 grid, constrained by the requirement to match adjacent edges. It has been designed to be difficult to solve by brute-force computer search.
+
+Each puzzle piece has its edges on one side marked with different shape/colour combinations (collectively called "colours" here), each of which must match precisely with its neighbouring side on each adjacent piece when the puzzle is complete. The other side of each piece is blank apart from an identifying number, and is not used in the puzzle. Thus, each piece can be used in only 4 orientations. There are 22 colours, not including the gray edges. Five of those can only be found on border and corner pieces and 17 only on so called inner pieces and the side of the border piece across from the gray colour. This puzzle differs from the first Eternity puzzle in that there is a starter piece which must be placed near the center of the board. (See PDF rulebook on official website.[2])
+
+Two Clue Puzzles were available with the launch of the product, which, if solved, each give a piece position on the main 256-piece puzzle. Clue Puzzle 1 is 6 by 6, with 36 pieces and Clue Puzzle 2 is 12 by 6, with 72 pieces. Two further puzzles were made available in 2008. Clue Puzzle 3 is 6 by 6, with 36 pieces, and Clue Puzzle 4 is 12 by 6, with 72 pieces.
+
+The number of possible configurations for the Eternity II puzzle, assuming all the pieces are distinct, and ignoring the fixed pieces with pre-determined positions, is 256!  4256, roughly 1.15  10661. A tighter upper bound to the possible number of configurations can be achieved by taking into account the fixed piece in the center and the restrictions set on the pieces on the edge: 1  4!  56!  195!  4195, roughly 1.115  10557. A further upper bound can be obtained by considering the position and orientation of the hint pieces obtained through the clue puzzles. In this case the position and orientation of five pieces is known, giving an upper bound of 4!  56!  191!  4191 = 3.11  10545, yielding a search space 3.70  10115 times smaller than the first approximation.
+
+After the first scrutiny date on 31 December 2008 it was announced that no complete solution had been found. A prize of $10,000 was awarded to Louis Verhaard from Lund in Sweden for a partial solution with 467 matching edges out of 480.[3]
+
+As of 30 January 2011, the official Eternity II site announces that "The final date for the correct solution of the Eternity II puzzle passes without a winner, and the $2m Prize for a correct solution to the Eternity II puzzle goes unclaimed."[4]
+
+Christopher Monckton's intended solution is still unpublished. A complete solution has not yet been discovered.
+
+There are no known partial solutions with more than 467 matching edges.
+
+The original Eternity puzzle was a tiling puzzle with a million-pound prize, created by Christopher Monckton. Launched in June 1999, it was solved by a computer search algorithm designed by Alex Selby and Oliver Riordan, which exploited combinatorial weaknesses of the original puzzle design.[5] The prize money was paid out in full to Selby and Riordan.
+
+A puzzle with striking similarities to both eternity puzzles, the Diamond Dilemma, with a deadline in 1990, 10 years before the deadline of the original eternity puzzle, has fewer puzzle pieces, 160 compared with 209 and 256 for the first two eternity puzzles respectively, and yet Diamond Dilemma has not yet been solved in over 25 years.
+
+The Eternity II puzzle was designed by Monckton in 2005, this time in collaboration with Selby and Riordan, who designed a computer program that generated the final Eternity II design.[6] According to the mathematical game enthusiast Brendan Owen, the Eternity II puzzle appears to have been designed to avoid the combinatorial flaws of the previous puzzle, with design parameters which appear to have been chosen to make the puzzle as difficult as possible to solve. In particular, unlike the original Eternity puzzle, there are likely only to be a very small number of possible solutions to the problem.[7] Owen estimates that a brute-force backtracking search might take around 21047 steps to complete.[8]
+
+Monckton was quoted by The Times in 2005 as saying:
+
+Although it has been demonstrated that the class of edge-matching puzzles, of which Eternity II is a special case, is in general NP-complete,[9] the same can be said of the general class of polygon packing problems, of which the original Eternity puzzle was a special case.
+
+Like the original Eternity puzzle, it is easy to find large numbers of ways to place substantial numbers of pieces on the board whose edges all match, making it seem that the puzzle is easy. However, given the low expected number of possible solutions, it is presumably astronomically unlikely that any given partial solution will lead to a complete solution.

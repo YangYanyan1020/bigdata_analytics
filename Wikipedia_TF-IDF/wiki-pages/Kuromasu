@@ -1,0 +1,17 @@
+Kuromasu (Japanese: kurodoko) is a binary-determination logic puzzle published by Nikoli. As of 2005, one book consisting entirely of Kuromasu puzzles has been published by Nikoli.
+
+Kuromasu is played on a rectangular grid. Some of these cells have numbers in them. Each cell may be either black or white. The object is to determine what type each cell is.
+
+The following rules determine which cells are which:
+
+Any cell with a number in it must be white. This is very important. For example, suppose there is a 2 cell with another numbered cell next to it. Then clearly both the 2 cell and the other cell can be seen from the 2 cell. No other cells can be visible from the 2, or else we'd exceed the count. Therefore, all other neighboring cells to the 2 must be black. Also, the cell beyond the other numbered cell must be black. This is a good way to start some puzzles.
+
+Suppose a 2 and another numbered cell or white cell are in the same row or column with just one space between them. Then the cell in the middle must be black, because if it were white, the 2 would be able to see at least 3 cells. This can also get you started on some puzzles quickly.
+
+If the number inside a cell is equal to the maximum number of cells it could possibly see, then all those cells must be white in order for that maximum to be possible. For example, in a 77 puzzle, the maximum number you can have in any cell is 13 (the cell itself, plus six others in the row, plus six other in the column). If a 13 appears in a cell of a 77 puzzle, all cells in the same row or column as the 13 must be white. This is often represented by placing dots in those cells.
+
+There are other methods.
+
+Deciding if a Kuromasu puzzle is solvable is NP-complete.[1]
+
+Kuromasu is an original puzzle of Nikoli; it first appeared in Puzzle Communication Nikoli #34 (June 1991). The English language Nikoli website uses Engrish to translate the name as "Where is Black Cells".

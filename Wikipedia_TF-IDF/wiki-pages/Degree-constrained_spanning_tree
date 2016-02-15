@@ -1,0 +1,11 @@
+In graph theory, a degree-constrained spanning tree is a spanning tree where the maximum vertex degree is limited to a certain constant k. The degree-constrained spanning tree problem is to determine whether a particular graph has such a spanning tree for a particular k.
+
+Question: Does G have a spanning tree in which no node has degree greater than k?
+
+This problem is NP-complete (Garey & Johnson 1979). This can be shown by a reduction from the Hamiltonian path problem. It remains NP-complete even if k is fixed to a value 2. If the problem is defined as the degree must be k, the k = 2 case of degree-confined spanning tree is the Hamiltonian path problem.
+
+On a weighted graph, a Degree-constrained minimum spanning tree (DCMST) is a degree-constrained spanning tree in which the sum of its edges has the minimum possible sum. Finding a DCMST is an NP-Hard problem.[1]
+
+Heuristic algorithms that can solve the problem in polynomial time have been proposed, including Genetic and Ant-Based Algorithms.
+
+Frer & Raghavachari (1994) gave an approximation algorithm for the problem which, on any given instance, either shows that the instance has no tree of maximum degree k or it finds and returns a tree of maximum degree k+1.

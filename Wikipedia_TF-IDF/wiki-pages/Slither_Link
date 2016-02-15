@@ -1,0 +1,29 @@
+Slitherlink (also known as Fences, Takegaki, Loop the Loop, Loopy, Ouroboros, Suriza and Dotty Dilemma) is a logic puzzle developed by publisher Nikoli.
+
+Slitherlink is played on a rectangular lattice of dots. Some of the squares formed by the dots have numbers inside them. The objective is to connect horizontally and vertically adjacent dots so that the lines form a simple loop with no loose ends. In addition, the number inside a square represents how many of its four sides are segments in the loop.
+
+Other types of planar graphs can be used in lieu of the standard grid, with varying numbers of edges per vertex or vertices per polygon. These patterns include snowflake, Penrose, Laves and Altair tilings. These add complexity by varying the number of possible paths from an intersection, and/or the number of sides to each polygon; but similar rules apply to their solution.
+
+Whenever the number of lines around a cell matches the number in the cell, the other potential lines must be eliminated. This is usually indicated by marking an X on lines known to be empty.
+
+Another useful notation when solving Slitherlink is a ninety degree arc between two adjacent lines, to indicate that exactly one of the two must be filled. A related notation is a double arc between adjacent lines, indicating that both or neither of the two must be filled. These notations are not necessary to the solution, but can be helpful in deriving it.
+
+Many of the methods below can be broken down into two simpler steps by use of arc notation.
+
+A key to many deductions in Slitherlink is that every point has either exactly two lines connected to it, or no lines. So if a point which is in the centre of the grid, not at an edge or corner, has three incoming lines which are X'd out, the fourth must also be X'd out. This is because the point cannot have just one line - it has no exit route from that point. Similarly, if a point on the edge of the grid, not at a corner, has two incoming lines which are X'd out, the third must also be X'd out. And if a corner of the grid has one incoming line which is X'd out, the other must also be X'd out.
+
+Application of this simple rule leads to increasingly complex deductions. Recognition of these simple patterns will help greatly in solving Slitherlink puzzles.
+
+If a 2 has any surrounding line Xd, then a line coming into either of the two corners not adjacent to the Xd out line cannot immediately exit at right angles away from the 2, as then two lines around the 2 would be impossible, and can therefore be Xd. This means that the incoming line must continue on one side of the 2 or the other. This in turn means that the second line of the 2 must be on the only remaining free side, adjacent to the originally Xd line, so that can be filled in.
+
+ Conversely, if a 2 has a line on one side, and an adjacent Xd out line, then the second line must be in one of the two remaining sides, and exit from the opposite corner (in either direction). If either of those two exits is Xd out, then it must take the other route.
+
+In a closed-off region of the lattice (from which there is no path for any lines to "escape"), there cannot exist an odd number of unconnected segment-ends, since all of the segment-ends must connect to something. Often, this will rule out one or more otherwise feasible options.
+
+In an exceptionally difficult puzzle, one may use the Jordan curve theorem, which states that any open curve that starts and ends outside of a closed curve must intersect the closed curve an even number of times. In particular, this means that any row of the grid must have an even number of vertical lines and any column must have an even number of horizontal lines. When only one potential line segment in one of these groups is unknown, you can determine whether it is part of the loop or not with this theorem.
+
+A simple strategy to assist in using this theorem is to "paint" (sometimes called "shade") the outside and the inside areas. When you see two outside cells, or two inside cells next to each other, then you know that there is not a line between them. The converse is also true: if you know there is no line between two cells, then those cells must be the same "color" (both inside or both outside). Similarly, if an outside cell and an inside cell are adjacent, you know there must be a filled line between them; and again the converse is true.
+
+Slitherlink is an original puzzle of Nikoli; it first appeared in Puzzle Communication Nikoli #26 (June 1989). The editor combined two original puzzles contributed there. At first, every square contained a number.
+
+Slitherlink video games have been featured for the Nintendo DS handheld game console, with Hudson Soft releasing Puzzle Series Vol. 5: Slitherlink in Japan on November 16, 2006, and Agetec including Slitherlink in its Nikoli puzzle compilation, Brain Buster Puzzle Pak, released in North America on June 17, 2007.[1]

@@ -1,0 +1,47 @@
+In graph theory, an independent set or stable set is a set of vertices in a graph, no two of which are adjacent. That is, it is a set S of vertices such that for every two vertices in S, there is no edge connecting the two. Equivalently, each edge in the graph has at most one endpoint in S. The size of an independent set is the number of vertices it contains. Independent sets have also been called internally stable sets.[1]
+
+A maximal independent set is either an independent set such that adding any other vertex to the set forces the set to contain an edge or the set of all vertices of the empty graph.
+
+A maximum independent set is an independent set of largest possible size for a given graph G. This size is called the independence number of G, and denoted (G).[2] The problem of finding such a set is called the maximum independent set problem and is an NP-hard optimization problem. As such, it is unlikely that there exists an efficient algorithm for finding a maximum independent set of a graph.
+
+Every maximum independent set also is maximal, but the converse implication does not necessarily hold.
+
+A set is independent if and only if it is a clique in the graphs complement, so the two concepts are complementary. In fact, sufficiently large graphs with no large cliques have large independent sets, a theme that is explored in Ramsey theory.
+
+A set is independent if and only if its complement is a vertex cover.[3] Therefore, the sum of the size of the largest independent set (G), and the size of a minimum vertex cover (G), is equal to the number of vertices in the graph.
+
+A vertex coloring of a graph G corresponds to a partition of its vertex set into independent subsets. Hence the minimal number of colors needed in a vertex coloring, the chromatic number (G), is at least the quotient of the number of vertices in G and the independent number (G).
+
+In a bipartite graph with no isolated vertices, the number of vertices in a maximum independent set equals the number of edges in a minimum edge covering; this is Knig's theorem.
+
+An independent set that is not the subset of another independent set is called maximal. Such sets are dominating sets. Every graph contains at most 3n/3 maximal independent sets,[4] but many graphs have far fewer. The number of maximal independent sets in n-vertex cycle graphs is given by the Perrin numbers, and the number of maximal independent sets in n-vertex path graphs is given by the Padovan sequence.[5] Therefore, both numbers are proportional to powers of 1.324718, the plastic number.
+
+In computer science, several computational problems related to independent sets have been studied.
+
+The first three of these problems are all important in practical applications; the independent set decision problem is not, but is necessary in order to apply the theory of NP-completeness to problems related to independent sets.
+
+The independent set problem and the clique problem are complementary: a clique in G is an independent set in the complement graph of G and vice versa. Therefore, many computational results may be applied equally well to either problem. For example, the results related to the clique problem have the following corollaries:
+
+Despite the close relationship between maximum cliques and maximum independent sets in arbitrary graphs, the independent set and clique problems may be very different when restricted to special classes of graphs. For instance, for sparse graphs (graphs in which the number of edges is at most a constant times the number of vertices in any subgraph), the maximum clique has bounded size and may be found exactly in linear time;[6] however, for the same classes of graphs, or even for the more restricted class of bounded degree graphs, finding the maximum independent set is MAXSNP-complete, implying that, for some constant c (depending on the degree) it is NP-hard to find an approximate solution that comes within a factor of c of the optimum.[7]
+
+The maximum independent set problem is NP-hard. However, it can be solved more efficiently than the O(n22n) time that would be given by a naive brute force algorithm that examines every vertex subset and checks whether it is an independent set.
+
+An algorithm of Robson (1986) solves the problem in time O(1.2108n) using exponential space. When restricted to polynomial space, there is a time O(1.2127n) algorithm[8] which improves upon a simpler O(1.2209n) algorithm.[9]
+
+In some classes of graphs, including claw-free graphs and perfect graphs, the maximum independent set may be found in polynomial time.[10]
+
+In a bipartite graph, all nodes that are not in the minimum vertex cover can be included in maximum independent set; see Knig's theorem. Therefore, minimum vertex covers can be found using a bipartite matching algorithm.
+
+In general, the maximum independent set problem cannot be approximated to a constant factor in polynomial time (unless P = NP). In fact, Max Independent Set in general is Poly-APX-complete, meaning it is as hard as any problem that can be approximated to a polynomial factor.[11] However, there are efficient approximation algorithms for restricted classes of graphs.
+
+In planar graphs, the maximum independent set may be approximated to within any approximation ratio c<1 in polynomial time; similar polynomial-time approximation schemes exist in any family of graphs closed under taking minors.[12]
+
+In bounded degree graphs, effective approximation algorithms are known with approximation ratios that are constant for a fixed value of the maximum degree; for instance, a greedy algorithm that forms a maximal independent set by, at each step, choosing the minimum degree vertex in the graph and removing its neighbors, achieves an approximation ratio of (+2)/3 on graphs with maximum degree.[13] Approximation hardness bounds for such instances were proven in Berman & Karpinski (1999). Indeed, even Max Independent Set on 3-regular 3-edge-colorable graphs is APX-complete.[14]
+
+An interval graph is a graph in which the nodes are 1-dimensional intervals (e.g. time intervals) and there is an edge between two intervals iff they intersect. An independent set in an interval graph is just a set of non-overlapping intervals. The problem of finding maximum independent sets in interval graphs has been studied, for example, in the context of job scheduling: given a set of jobs that has to be executed on a computer, find a maximum set of jobs that can be executed without interfering with each other. This problem can be solved exactly in polynomial time using earliest deadline first scheduling.
+
+A geometric intersection graph is a graph in which the nodes are geometric shapes and there is an edge between two shapes iff they intersect. An independent set in a geometric intersection graph is just a set of disjoint (non-overlapping) shapes. The problem of finding maximum independent sets in geometric intersection graphs has been studied, for example, in the context of Automatic label placement: given a set of locations in a map, find a maximum set of disjoint rectangular labels near these locations.
+
+Finding a maximum independent set in intersection graphs is still NP-complete, but it is easier to approximate than the general maximum independent set problem. A recent survey can be found in the introduction of Chan & Har-Peled (2012).
+
+The problem of finding a maximal independent set can be solved in polynomial time by a trivial greedy algorithm.[15] All maximal independent sets can be found in time O(3n/3) = O(1.4423n).

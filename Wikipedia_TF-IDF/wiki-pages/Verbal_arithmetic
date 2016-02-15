@@ -1,0 +1,29 @@
+Verbal arithmetic, also known as alphametics, cryptarithmetic, cryptarithm or word addition, is a type of mathematical game consisting of a mathematical equation among unknown numbers, whose digits are represented by letters. The goal is to identify the value of each letter. The name can be extended to puzzles that use non-alphabetic symbols instead of letters.
+
+The equation is typically a basic operation of arithmetic, such as addition, multiplication, or division. The classic example, published in the July 1924 issue of Strand Magazine by Henry Dudeney,[1] is:
+
+The solution to this puzzle is O = 0, M = 1, Y = 2, E = 5, N = 6, D = 7, R = 8, and S = 9.
+
+Traditionally, each letter should represent a different digit, and (as in ordinary arithmetic notation) the leading digit of a multi-digit number must not be zero. A good puzzle should have a unique solution, and the letters should make up a phrase (as in the example above).
+
+Verbal arithmetic can be useful as a motivation and source of exercises in the teaching of algebra.
+
+Verbal arithmetic puzzles are quite old and their inventor is not known. An 1864 example in The American Agriculturist[2] disproves the popular notion that it was invented by Sam Loyd. The name "cryptarithmie" was coined by puzzlist Minos (pseudonym of Simon Vatriquant) in the May 1931 issue of Sphinx, a Belgian magazine of recreational mathematics, and was translated as "cryptarithmetic" by Maurice Kraitchik in 1942.[3] In 1955, J. A. H. Hunter introduced the word "alphametic" to designate cryptarithms, such as Dudeney's, whose letters form meaningful words or phrases.[4]
+
+Types of cryptarithm include the alphametic, the digimetic, and the skeletal division.
+
+1.Alphametic A type of cryptarithm in which a set of words is written down in the form of a long addition sum or some other mathematical problem. The object is to replace the letters of the alphabet with decimal digits to make a valid arithmetic sum.
+
+2.Digimetic A cryptarithm in which digits are used to represent other digits.
+
+3.Skeletal division A long division in which most or all of the digits are replaced by symbols (usually asterisks) to form a cryptarithm.
+
+Solving a cryptarithm by hand usually involves a mix of deductions and exhaustive tests of possibilities. For instance, the following sequence of deductions solves Dudeney's SEND + MORE = MONEY puzzle above (columns are numbered from right to left):
+
+The use of modular arithmetic often helps. For example, use of mod-10 arithmetic allows the columns of an addition problem to be treated as simultaneous equations, while the use of mod-2 arithmetic allows inferences based on the parity of the variables.
+
+In computer science, cryptarithms provide good examples to illustrate the brute force method, and algorithms that generate all permutations of m choices from n possibilities. For example, the Dudeney puzzle above can be solved by testing all assignments of eight values among the digits 0 to 9 to the eight letters S,E,N,D,M,O,R,Y, giving 1,814,400 possibilities. They also provide good examples for backtracking paradigm of algorithm design.
+
+When generalized to arbitrary bases, the problem of determining if a cryptarithm has a solution is NP-complete.[5] (The generalization is necessary for the hardness result because in base 10, there are only 10! possible assignments of digits to letters, and these can be checked against the puzzle in linear time.)
+
+Alphametics can be combined with other number puzzles such as Sudoku and Kakuro to create cryptic Sudoku and Kakuro.

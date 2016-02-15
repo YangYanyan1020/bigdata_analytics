@@ -1,0 +1,27 @@
+In the mathematical fields of graph theory and combinatorial optimization, the bipartite dimension or biclique cover number of a graph G=(V,E) is the minimum number of bicliques (that is complete bipartite subgraphs), needed to cover all edges in E. A collection of bicliques covering all edges in G is called a biclique edge cover, or sometimes biclique cover. The bipartite dimension of G is often denoted by the symbol d(G).
+
+An example for a biclique edge cover is given in the following diagrams:
+
+The biclique dimension of the n-vertex complete graph, is .
+
+The bipartite dimension of a 2n-vertex crown graph equals , where
+
+is the inverse function of the central binomial coefficient (de Caen, Gregory & Pullman 1981). Fishburn & Hammer (1996) determine the bipartite dimension for some special graphs. For example, the path has and the cycle has .
+
+The computational task of determining the bipartite dimension for a given graph G is an optimization problem. The decision problem for bipartite dimension can be phrased as:
+
+This problem appears as problem GT18 in Garey and Johnson's classical book on NP-completeness, and is a rather straightforward reformulation of another decision problem on families of finite sets.
+
+The set basis problem appears as problem SP7 in Garey and Johnson's book. Here, for a family of subsets of a finite set , a set basis for is another family of subsets of , such that every set can be described as the union of some basis elements from . The set basis problem is now given as follows:
+
+In its former formulation, the problem was proved to be NP-complete by Orlin (1977), even for bipartite graphs. The formulation as a set basis problem was proved to be NP-complete earlier by Stockmeyer (1975). The problem remains NP-hard even if we restrict our attention to bipartite graphs whose bipartite dimension is guaranteed to be at most , with n denoting the size of the given problem instance (Gottlieb, Savage & Yerukhimovich 2005). On the positive side, the problem is solvable in polynomial time on bipartite domino-free graphs (Amilhastre, Janssen & Vilarem 1997).
+
+Regarding the existence of approximation algorithms, Simon (1990) proved that the problem cannot be approximated well (assuming PNP). Indeed, the bipartite dimension is NP-hard to approximate within for every fixed , already for bipartite graphs (Gruber & Holzer 2007).
+
+In contrast, proving that the problem is fixed-parameter tractable is an exercise in designing kernelization algorithms, which appears as such in the textbook by Downey & Fellows (1999). Fleischner, Mujuni & Szeider (2009) also provide a concrete bound on the size of the resulting kernel, which has meanwhile been improved by Nor et al. (2010). In fact, for a given bipartite graph on n vertices, it can be decided in time with whether its bipartite dimension is at most k (Nor et al. 2010)
+
+The problem of determining the bipartite dimension of a graph appears in various contexts of computing. For instance, in computer systems, different users of a system can be allowed or disallowed accessing various resources. In a role-based access control system, a role provides access rights to a set of resources. A user can own multiple roles, and he has permission to access all resources granted by some of his roles. Also, a role can be owned by multiple users. The role mining problem is to find a minimum set of roles, such that for each user, his roles taken together grant access to all specified resources. The set of users together with the set of resources in the system naturally induces a bipartite graph, whose edges are permissions. Each biclique in this graph is a potential role, and the optimum solutions to the role mining problem are precisely the minimum biclique edge covers (Ene et al. 2008).
+
+A similar scenario is known in computer security, more specifically in secure broadcasting. In that setup, several messages need to be sent each to a set of receivers, over an insecure channel. Each message has to be encrypted using some cryptographic key that is known only to the intended receivers. Each receiver may possess multiple encryption keys, and each key will be distributed to multiple receivers. The optimum key generation problem is to find a minimum set of encryption keys for ensuring secure transmission. As above, the problem can be modeled using a bipartite graph whose minimum biclique edge covers coincide with the solutions to the optimum key generation problem (Shu, Lee & Yannakakis 2006).
+
+A different application lies in biology, where minimum biclique edge covers are used in mathematical models of human leukocyte antigen (HLA) serology (Nau et al. 1978).

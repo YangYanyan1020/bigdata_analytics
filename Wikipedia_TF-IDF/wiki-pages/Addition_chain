@@ -1,0 +1,25 @@
+In mathematics, an addition chain for computing a positive integer n can be given by a sequence of natural numbers v and a sequence of index pairs w such that each term in v is the sum of two previous terms, the indices of those terms being specified by w:
+
+Often only v is given since it is easy to extract w from v, but sometimes w is not uniquely reconstructible. The length of an addition chain is the number of sums needed to express all its numbers, which is one less than the cardinality of the sequence of numbers. An introduction is given by Knuth.[1]
+
+As an example: v = (1,2,3,6,12,24,30,31) is an addition chain for 31 of length 7, since
+
+Addition chains can be used for addition-chain exponentiation: so for example we only need 7 multiplications to calculate 531:
+
+Calculating an addition chain of minimal length is not easy; a generalized version of the problem, in which one must find a chain that simultaneously forms each of a sequence of values, is NP-complete.[2] There is no known algorithm which can calculate a minimal addition chain for a given number with any guarantees of reasonable timing or small memory usage. However, several techniques to calculate relatively short chains exist. One very well known technique to calculate relatively short addition chains is the binary method, similar to exponentiation by squaring. Other well-known methods are the factor method and window method.[3]
+
+Let denote the smallest s so that there exists an addition chain of length s which computes n. It is known that [4]
+
+where is Hamming weight (the number of ones) of the binary expansion of n.
+
+It is clear that l(2n)  l(n)+1. Strict inequality is possible, as l(382) = l(191) = 11, observed by Knuth.[5] The first integer with l(2n) < l(n) is n = 375494703.[6]
+
+A Brauer chain or star addition chain is an addition chain in which one of the summands is always the previous chain: that is,
+
+A Brauer number is one for which the Brauer chain is minimal.[5]
+
+where is the length of the shortest star chain. For many values of n,and in particular for n2500, they are equal: l(n)=l*(n). But Hansen showed that there are some values of n for which l(n)l*(n), such as n=26106+23048+22032+22016+1 which has l*(n)=6110, l(n)6109.
+
+The Scholz conjecture (sometimes called the ScholzBrauer or BrauerScholz conjecture), named after A. Scholz and Alfred T. Brauer), is a conjecture from 1937 stating that
+
+It is known to be true for Hansen numbers, a generalization of Brauer numbers; N. Clift checked by computer that all n5784688 are Hansen (while 5784689 is not).[6] Clift further checked that is true with equality for n64.[5]

@@ -1,0 +1,21 @@
+In graph theory, the cycle rank of a directed graph is a digraph connectivity measure proposed first by Eggan and Bchi (Eggan 1963). Intuitively, this concept measures how close a digraph is to a directed acyclic graph (DAG), in the sense that a DAG has cycle rank zero, while a complete digraph of order n with a self-loop at each vertex has cycle rank n. The cycle rank of a directed graph is closely related to the tree-depth of an undirected graph and to the star height of a regular language. It has also found use in sparse matrix computations (see Bodlaender et al. 1995) and logic (Rossman 2008).
+
+The cycle rank r(G) of a digraph G=(V,E) is inductively defined as follows:
+
+The tree-depth of an undirected graph has a very similar definition, using undirected connectivity and connected components in place of strong connectivity and strongly connected components.
+
+Cycle rank was introduced by Eggan (1963) in the context of star height of regular languages. It was rediscovered by (Eisenstat & Liu 2005) as a generalization of undirected tree-depth, which had been developed beginning in the 1980s and applied to sparse matrix computations (Schreiber 1982).
+
+The cycle rank of a directed acyclic graph is 0, while a complete digraph of order n with a self-loop at each vertex has cycle rank n. Apart from these, the cycle rank of a few other digraphs is known: the undirected path of order n, which possesses a symmetric edge relation and no self-loops, has cycle rank (McNaughton 1969). For the directed -torus , i.e., the cartesian product of two directed circuits of lengths m and n, we have and for m  n (Eggan 1963, Gruber & Holzer 2008).
+
+Computing the cycle rank is computationally hard: Gruber (2012) proves that the corresponding decision problem is NP-complete, even for sparse digraphs of maximum outdegree at most 2. On the positive side, the problem is solvable in time on digraphs of maximum outdegree at most 2, and in time on general digraphs. There is an approximation algorithm with approximation ratio .
+
+The first application of cycle rank was in formal language theory, for studying the star height of regular languages. Eggan (1963) established a relation between the theories of regular expressions, finite automata, and of directed graphs. In subsequent years, this relation became known as Eggan's theorem, cf. Sakarovitch (2009). In automata theory, a nondeterministic finite automaton with -moves (-NFA) is defined as a 5-tuple, (Q, , , q , F), consisting of
+
+A word w  * is accepted by the -NFA if there exists a directed path from the initial state q to some final state in F using edges from , such that the concatenation of all labels visited along the path yields the word w. The set of all words over * accepted by the automaton is the language accepted by the automaton A.
+
+When speaking of digraph properties of a nondeterministic finite automaton A with state set Q, we naturally address the digraph with vertex set Q induced by its transition relation. Now the theorem is stated as follows.
+
+Proofs of this theorem are given by Eggan (1963), and more recently by Sakarovitch (2009).
+
+Another application of this concept lies in sparse matrix computations, namely for using nested dissection to compute the Cholesky factorization of a (symmetric) matrix in parallel. A given sparse -matrix M may be interpreted as the adjacency matrix of some symmetric digraph G on n vertices, in a way such that the non-zero entries of the matrix are in one-to-one correspondence with the edges of G. If the cycle rank of the digraph G is at most k, then the Cholesky factorization of M can be computed in at most k steps on a parallel computer with processors (Dereniowski & Kubale 2004).

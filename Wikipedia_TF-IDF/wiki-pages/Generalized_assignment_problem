@@ -1,0 +1,17 @@
+In applied mathematics, the maximum generalized assignment problem is a problem in combinatorial optimization. This problem is a generalization of the assignment problem in which both tasks and agents have a size. Moreover, the size of each task might vary from one agent to the other.
+
+This problem in its most general form is as follows:-
+
+There are a number of agents and a number of tasks. Any agent can be assigned to perform any task, incurring some cost and profit that may vary depending on the agent-task assignment. Moreover, each agent has a budget and the sum of the costs of tasks assigned to it cannot exceed this budget. It is required to find an assignment in which all agents do not exceed their budget and total profit of the assignment is maximized.
+
+In the special case in which all the agents' budgets and all tasks' costs are equal to 1, this problem reduces to the assignment problem. When the costs and profits of all agents-task assignment are equal, this problem reduces to the multiple knapsack problem. If there is a single agent, then, this problem reduces to the Knapsack problem.
+
+In the following, we have n kinds of items, through and m kinds of bins through . Each bin is associated with a budget . For a bin , each item has a profit and a weight . A solution is an assignment from items to bins. A feasible solution is a solution in which for each bin the total weight of assigned items is at most . The solution's profit is the sum of profits for each item-bin assignment. The goal is to find a maximum profit feasible solution.
+
+Mathematically the generalized assignment problem can be formulated as an integer program:
+
+The generalized assignment problem is NP-hard, and it is even APX-hard to approximate it. Recently it was shown that an extension of it is hard to approximate for every .[citation needed]
+
+Using any -approximation algorithm ALG for the knapsack problem, it is possible to construct a ( )-approximation for the generalized assignment problem in a greedy manner using a residual profit concept. The algorithm constructs a schedule in iterations, where during iteration a tentative selection of items to bin is selected. The selection for bin might change as items might be reselected in a later iteration for other bins. The residual profit of an item for bin is if is not selected for any other bin or  if is selected for bin .
+
+Formally: We use a vector to indicate the tentative schedule during the algorithm. Specifically, means the item is scheduled on bin and means that item is not scheduled. The residual profit in iteration is denoted by , where if item is not scheduled (i.e. ) and if item is scheduled on bin (i.e. ).

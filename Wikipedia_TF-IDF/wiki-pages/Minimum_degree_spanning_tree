@@ -1,0 +1,3 @@
+In graph theory, for a connected graph , a spanning tree is a subgraph of with the least number of edges that still spans . A number of properties can be proved about . is acyclic, has ( ) edges where is the number of vertices in etc.
+
+A minimum degree spanning tree is a spanning tree which has the least maximum degree. The vertex of maximum degree in is the least among all possible spanning trees of .

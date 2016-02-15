@@ -1,0 +1,7 @@
+In complexity theory, maximum common subgraph-isomorphism (MCS) is an optimization problem that is known to be NP-hard. The formal description of the problem is as follows:
+
+The associated decision problem, i.e., given G , G and an integer k, deciding whether G contains a subgraph of at least k vertices isomorphic to a subgraph of G is NP-complete.
+
+One possible solution for this problem is to build a modular product graph, in which the largest clique represents a solution for the MCS problem.
+
+MCS algorithms have a long tradition in cheminformatics and pharmacophore mapping.

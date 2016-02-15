@@ -1,0 +1,35 @@
+In the mathematical field of graph theory, a Hamiltonian path (or traceable path) is a path in an undirected or directed graph that visits each vertex exactly once. A Hamiltonian cycle (or Hamiltonian circuit) is a Hamiltonian path that is a cycle. Determining whether such paths and cycles exist in graphs is the Hamiltonian path problem, which is NP-complete.
+
+Hamiltonian paths and cycles and cycle paths are named after William Rowan Hamilton who invented the icosian game, now also known as Hamilton's puzzle, which involves finding a Hamiltonian cycle in the edge graph of the dodecahedron. Hamilton solved this problem using the icosian calculus, an algebraic structure based on roots of unity with many similarities to the quaternions (also invented by Hamilton). This solution does not generalize to arbitrary graphs.
+
+However, despite being named after Hamilton, Hamiltonian cycles in polyhedra had also been studied a year earlier by Thomas Kirkman, who, in particular, gave an example of a polyhedron without Hamiltonian cycles.[1]
+
+A Hamiltonian path or traceable path is a path that visits each vertex exactly once. A graph that contains a Hamiltonian path is called a traceable graph. A graph is Hamiltonian-connected if for every pair of vertices there is a Hamiltonian path between the two vertices.
+
+A Hamiltonian cycle, Hamiltonian circuit, vertex tour or graph cycle is a cycle that visits each vertex exactly once (except for the vertex that is both the start and end, which is visited twice). A graph that contains a Hamiltonian cycle is called a Hamiltonian graph.
+
+Similar notions may be defined for directed graphs, where each edge (arc) of a path or cycle can only be traced in a single direction (i.e., the vertices are connected with arrows and the edges traced "tail-to-head").
+
+A Hamiltonian decomposition is an edge decomposition of a graph into Hamiltonian circuits.
+
+Any Hamiltonian cycle can be converted to a Hamiltonian path by removing one of its edges, but a Hamiltonian path can be extended to Hamiltonian cycle only if its endpoints are adjacent.
+
+All Hamiltonian graphs are biconnected, but a biconnected graph need not be Hamiltonian (see, for example, the Petersen graph).[3]
+
+An Eulerian graph G (a connected graph in which every vertex has even degree) necessarily has an Euler tour, a closed walk passing through each edge of G exactly once. This tour corresponds to a Hamiltonian cycle in the line graph L(G), so the line graph of every Eulerian graph is Hamiltonian. Line graphs may have other Hamiltonian cycles that do not correspond to Euler tours, and in particular the line graph L(G) of every Hamiltonian graph G is itself Hamiltonian, regardless of whether the graph G is Eulerian.[4]
+
+A tournament (with more than two vertices) is Hamiltonian if and only if it is strongly connected.
+
+The number of different Hamiltonian cycles in a complete undirected graph on n vertices is (n  1)! / 2 and in a complete directed graph on n vertices is (n  1)!. These counts assume that cycles that are the same apart from their starting point are not counted separately.
+
+The best vertex degree characterization of Hamiltonian graphs was provided in 1972 by the BondyChvtal theorem, which generalizes earlier results by G. A. Dirac (1952) and ystein Ore. Both Dirac's and Ore's theorems can also be derived from Psa's theorem (1962). Hamiltonicity has been widely studied with relation to various parameters such as graph density, toughness, forbidden subgraphs and distance among other parameters.[5] Dirac and Ore's theorems basically state that a graph is Hamiltonian if it has enough edges.
+
+BondyChvtal theorem operates on the closure cl(G) of a graph G with n vertices, obtained by repeatedly adding a new edge uv connecting a nonadjacent pair of vertices u and v with degree(v) + degree(u)  n until no more pairs with this property can be found.
+
+As complete graphs are Hamiltonian, all graphs whose closure is complete are Hamiltonian, which is the content of the following earlier theorems by Dirac and Ore.
+
+The following theorems can be regarded as directed versions:
+
+The number of vertices must be doubled because each undirected edge corresponds to two directed arcs and thus the degree of a vertex in the directed graph is twice the degree in the undirected graph.
+
+The above theorem can only recognize the existence of a Hamiltonian path in a graph and not a Hamiltonian Cycle. A similar sufficiency condition for Hamiltonian cycles is introduced by Kaykobad.[7] It follows-

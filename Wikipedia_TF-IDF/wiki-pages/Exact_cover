@@ -1,0 +1,179 @@
+In mathematics, given a collection of subsets of a set X, an exact cover is a subcollection of such that each element in X is contained in exactly one subset in . One says that each element in X is covered by exactly one subset in . An exact cover is a kind of cover.
+
+In computer science, the exact cover problem is a decision problem to determine if an exact cover exists. The exact cover problem is NP-complete[1] and is one of Karp's 21 NP-complete problems.[2] The exact cover problem is a kind of constraint satisfaction problem.
+
+An exact cover problem can be represented by an incidence matrix or a bipartite graph.
+
+Knuth's Algorithm X is an algorithm that finds all solutions to an exact cover problem. DLX is the name given to Algorithm X when it is implemented efficiently using Donald Knuth's Dancing Links technique on a computer.[3]
+
+The standard exact cover problem can be generalized slightly to involve not only "exactly one" constraints but also "at-most-one" constraints.
+
+Finding Pentomino tilings and solving Sudoku are noteworthy examples of exact cover problems. The N queens problem is a slightly generalized exact cover problem.
+
+Given a collection of subsets of a set X, an exact cover of X is a subcollection of that satisfies two conditions:
+
+In short, an exact cover is "exact" in the sense that each element in X is contained in exactly one subset in .
+
+Equivalently, an exact cover of X is a subcollection of that partitions X.
+
+For an exact cover of X to exist, it is necessary that:
+
+If the empty set  is contained in , then it makes no difference whether or not it is in any exact cover. Thus it is typical to assume that:
+
+Let = {N, O, P, E} be a collection of subsets of a set X = {1, 2, 3, 4} such that:
+
+The subcollection {O, E} is an exact cover of X, since the subsets O = {1, 3} and E = {2, 4} are disjoint and their union is X = {1, 2, 3, 4}.
+
+The subcollection {N, O, E} is also an exact cover of X. Including the empty set N = { } makes no difference, as it is disjoint with all subsets and does not change the union.
+
+The subcollection {E, P} is not an exact cover of X. The intersection of the subsets E and P, {2}, is not empty: The subsets E and P are not disjoint. Moreover, the union of the subsets E and P, {2, 3, 4}, is not X = {1, 2, 3, 4}: Neither E nor P covers the element 1.
+
+On the other hand, there is no exact coverindeed, not even a coverof Y = {1, 2, 3, 4, 5} because = {1, 2, 3, 4} is a proper subset of Y: None of the subsets in contains the element 5.
+
+Let = {A, B, C, D, E, F} be a collection of subsets of a set X = {1, 2, 3, 4, 5, 6, 7} such that:
+
+Then the subcollection = {B, D, F} is an exact cover, since each element in X is contained in exactly one of the subsets:
+
+Moreover, {B, D, F} is the only exact cover, as the following argument demonstrates: Because A and B are the only subsets containing 1, an exact cover must contain A or B, but not both. If an exact cover contains A, then it doesn't contain B, C, E, or F, as each of these subsets has an element in common with A. Then D is the only remaining subset, but the collection {A, D} doesn't cover the element 2. In conclusion, there is no exact cover containing A. On the other hand, if an exact cover contains B, then it doesn't contain A or C, as each of these subsets has an element in common with B. Because D is the only remaining subset containing 5, D must be part of the exact cover. If an exact cover contains D, then it doesn't contain E, as E has an element in common with D. Then F is the only remaining subset, and the collection {B, D, F} is indeed an exact cover. See the example in the article on Knuth's Algorithm X for a matrix-based version of this argument.
+
+An exact cover problem is defined by the binary relation "contains" between subsets in and elements in X. There are different equivalent ways to represent this relation.
+
+The standard way to represent the relation "contains" is to list the elements in each subset.
+
+For example, the detailed example above uses this standard representation:
+
+Again, the subcollection = {B, D, F} is an exact cover, since each element is contained in exactly one selected subset, as the highlighting makes clear.
+
+The relation "contains" between subsets and elements can be inverted, listing the subsets each element is contained in.
+
+For example, the relation "contains" in the detailed example above can be represented by listing the subsets each element is contained in:
+
+Again, the subcollection = {B, D, F} is an exact cover, since each element is contained in exactly one selected subset, as the highlighting makes clear.
+
+When solving an exact cover problem, it is often useful to switch between the standard and inverse representations.
+
+The relation "contains" can be represented by an incidence matrix.
+
+The matrix includes one row for each subset in and one column for each element in X. The entry in a particular row and column is 1 if the corresponding subset contains the corresponding element, and is 0 otherwise. As each row represents the elements contained in the corresponding subset and each column represents the subsets containing the corresponding element, an incidence matrix effectively provides both the standard and inverse representations.
+
+In the matrix representation, an exact cover is a selection of rows such that each column contains a 1 in exactly one selected row.
+
+For example, the relation "contains" in the detailed example above can be represented by a 67 incidence matrix:[4]
+
+Again, the subcollection = {B, D, F} is an exact cover, since each element is contained in exactly one selected subset, i.e., each column contains a 1 in exactly one selected row, as the highlighting makes clear.
+
+See the example in the article on Knuth's Algorithm X for a matrix-based solution to the detailed example above.
+
+In turn, the incidence matrix can be seen also as describing a hypergraph. The hypergraph includes one node for each element in X and one edge for each subset in ; each node is included in exactly one of the edges forming the cover.
+
+The relation "contains" can be represented by a bipartite graph.
+
+The vertices of the graph are divided into two disjoint sets, one representing the subsets in and another representing the elements in X. If a subset contains an element, an edge connects the corresponding vertices in the graph.
+
+In the graph representation, an exact cover is a selection of vertices corresponding to subsets such that each vertex corresponding to an element is connected to exactly one selected vertex.
+
+For example, the relation "contains" in the detailed example above can be represented by a bipartite graph with 6+7 = 13 vertices:
+
+Again, the subcollection = {B, D, F} is an exact cover, since each element is contained in exactly one selected subset, i.e., the vertex corresponding to each element in X is connected to exactly one selected vertex, as the highlighting makes clear.
+
+Although the canonical exact cover problem involves a collection of subsets of a set X, the logic does not depend on the presence of subsets containing elements. An "abstract exact cover problem" arises whenever there is a binary relation between two sets P and Q and the goal is to select a subset P* of P such that each element in Q is related to exactly one element in P*. In general, the elements of P represent choices and the elements of Q represent "exactly one" constraints on those choices.
+
+More formally, given a binary relation R P  Q between sets P and Q, one can call a subset P* of P an "abstract exact cover" of Q if each element in Q is R1-related to exactly one element in P*. Here R1 is the inverse of R.
+
+In general, R1 restricted to Q  P* is a function from Q to P*, which maps each element in Q to the unique element in P* that is R-related that element in Q. This function is onto, unless P* contains the "empty set," i.e., an element which isn't R-related to any element in Q.
+
+In the canonical exact cover problem, P is a collection of subsets of X, Q is the set X, R is the binary relation "contains" between subsets and elements, and R1 restricted to Q  P* is the function "is contained in" from elements to selected subsets.
+
+In mathematics, given a collection of subsets of a set X, an exact hitting set X* is a subset of X such that each subset in contains exactly one element in X*. One says that each subset in is hit by exactly one element in X*.
+
+In computer science, the exact hitting set problem is a decision problem to find an exact hitting set or else determine none exists.
+
+The exact hitting set problem is an abstract exact cover problem. In the notation above, P is the set X, Q is a collection of subsets of X, R is the binary relation "is contained in" between elements and subsets, and R1 restricted to Q  P* is the function "contains" from subsets to selected elements.
+
+Whereas an exact cover problem involves selecting subsets and the relation "contains" from subsets to elements, an exact hitting set problem involves selecting elements and the relation "is contained in" from elements to subsets. In a sense, an exact hitting set problem is the inverse of the exact cover problem involving the same set and collection of subsets.
+
+As in the detailed exact cover example above, let = {A, B, C, D, E, F} be a collection of subsets of a set X = {1, 2, 3, 4, 5, 6, 7} such that:
+
+Then X* = {1, 2, 5} is an exact hitting set, since each subset in contains exactly one element in X*, as the highlighting makes clear.
+
+Moreover, {1, 2, 5} is the only exact hitting set, as the following argument demonstrates: Because 2 and 7 are the only elements that hit F, an exact hitting set must contain 2 or 7, but not both. If an exact hitting set contains 7, then it doesn't contain 1, 2, 3, 4, 5, or 6, as each of these elements are contained in some subset also containing 7. Then there are no more remaining elements, but {7} is not an exactly hitting set, as it doesn't hit B or D. In conclusion, there is no exact hitting set containing 7. On the other hand, if an exact hitting set contains 2, then it doesn't contain 3, 6, or 7, as each of these elements are contained in some subset also containing 2. Because 5 is the only remaining element that hits D, the exact hitting set must contain 5. If an exact hitting set contains 5, then it doesn't contain 4, as both hit C. Because 1 is the only remaining element that hits A, the exact hitting set must contain 1. Then there are no more remaining elements, and {1, 2, 5} is indeed an exact hitting set.
+
+Although this example involves the same collection of subsets as the detailed exact cover example above, it is essentially a different problem. In a sense, the exact hitting set problem is the inverse (or transpose or converse) of the corresponding exact cover problem above, as the matrix representation makes clear:
+
+But there is another exact hitting set problem that is essentially the same as the detailed exact cover example above, in which numbered elements become subsets and lettered subsets become elements, effectively inverting the relation between subsets and element.
+
+For example, as the subset B contains the elements 1 and 4 in the exact cover problem, the subsets I and IV contain the element b in the dual exact hitting set problem.
+
+In particular, let = {I, II, III, IV, V, VI, VII} be a collection of subsets of a set X = {a, b, c, d, e, f} such that:
+
+Then X* = {b, d, f} is an exact hitting set, since each subset in contains (is hit by) exactly one element in X*, as the highlighting makes clear.
+
+The exact hitting set X* = {b, d, f} here is essentially the same as the exact cover = {B, D, F} above, as the matrix representation makes clear:
+
+Algorithm X is the name Donald Knuth gave for "the most obvious trial-and-error approach" for finding all solutions to the exact cover problem.[3] Technically, Algorithm X is a recursive, nondeterministic, depth-first, backtracking algorithm.
+
+When Algorithm X is implemented efficiently using Donald Knuth's Dancing Links technique on a computer, Knuth calls it DLX. DLX uses the matrix representation of the problem, implemented as a series of doubly linked lists of the 1s of the matrix: each 1 element has a link to the next 1 above, below, to the left, and to the right of itself. (Technically, because the lists are circular, this forms a torus). Because exact cover problems tend to be sparse, this representation is usually much more efficient in both size and processing time required. DLX then uses the Dancing Links technique to quickly select permutations of rows as possible solutions and to efficiently backtrack (undo) mistaken guesses.[3]
+
+In a standard exact cover problem, each constraint must be satisfied exactly once. It is a simple generalization to relax this requirement slightly and allow for the possibility that some "primary" constraints must be satisfied by exactly one selection but other "secondary" constraints can be satisfied by at most one selection.
+
+As Knuth explains, a generalized exact cover problem can be converted to an equivalent exact cover problem by simply appending one row for each secondary column, containing a single 1 in that column.[5] If in a particular candidate solution a particular secondary column is satisfied, then the added row isn't needed. But if the secondary column isn't satisfied, as is allowed in the generalized problem but not the standard problem, then the added row can be selected to ensure the column is satisfied.
+
+But Knuth goes on to explain that it is better working with the generalized problem directly, because the generalized algorithm is simpler and faster: A simple change to his Algorithm X allows secondary columns to be handled directly.
+
+The N queens problem is an example of a generalized exact cover problem, as the constraints corresponding to the diagonals of the chessboard have a maximum rather than an exact queen count.
+
+Due to its NP-completeness, any problem in NP can be reduced to exact cover problems, which then can be solved with techniques such as Dancing Links. However, for some well known problems, the reduction is particularly direct. For instance, the problem of tiling a board with pentominoes, and solving Sudoku can both be viewed as exact cover problems.
+
+The problem of tiling a 60-square board with 12 pentominoes is an example of an exact cover problem, as Donald Knuth explains in his paper "Dancing links."[3]
+
+For example, consider the problem of tiling with pentominoes an 88 chessboard with the 4 central squares removed:
+
+The problem involves two kinds of constraints:
+
+Thus there are 12+60 = 72 constraints in all.
+
+As both kinds of constraints are "exactly one" constraints, the problem is an exact cover problem.
+
+The problem involves many choices, one for each way to place a pentomino on the board. It is convenient to consider each choice as a sets of 6 constraints: 1 constraint for the pentomino being placed and 5 constraints for the five squares where it is placed.
+
+In the case of an 88 chessboard with the 4 central squares removed, there are 1568 such choices, for example:
+
+One of many solutions of this exact cover problem is the following set of 12 choices:
+
+This set of choices corresponds to the following solution to the pentomino tiling problem:
+
+A pentomino tiling problem is more naturally viewed as an exact cover problem than an exact hitting set problem, because it is more natural to view each choice as a set of constraints than each constraint as a set of choices. Each choice is related to just 6 constraints, which are easy to enumerate. On the other hand, each constraint is related to many choices, which are harder to enumerate.
+
+Whether viewed as an exact cover problem or an exact hitting set problem, the matrix representation is the same, having 1568 rows corresponding to choices and 72 columns corresponding to constraints. Each row contains a single 1 in the column identifying the pentomino and five 1s in the columns identifying the squares covered by the pentomino. Using the matrix, a computer can find all solutions relatively quickly, for example, using Dancing Links.
+
+The problem in Sudoku is to assign numbers (or digits, values, symbols) to cells (or squares) in a grid so as to satisfy certain constraints.
+
+In the standard 99 Sudoku variant, there are four kinds of constraints:
+
+While the first constraint might seem trivial, it is nevertheless needed to ensure there is only one number per cell. Intuitively, placing a number into a cell prohibits placing that number in any other cell sharing the same column, row, or box and also prohibits placing any other number into the now occupied cell.
+
+More precisely, solving Sudoku is an exact hitting set problem, which is equivalent to an exact cover problem, when viewed as a problem to select possibilities such that each constraint set contains (i.e., is hit by) exactly one selected possibility. In the notation above for the (generalized) exact cover problem, X is the set of possibilities, Y is a set of constraint sets, and R is the binary relation "is contained in."
+
+Each possible assignment of a particular number to a particular cell is a possibility (or candidate). When Sudoku is played with pencil and paper, possibilities are often called pencil marks.
+
+In the standard 99 Sudoku variant, in which each of 99 cells is assigned one of 9 numbers, there are 999=729 possibilities. Using obvious notation for rows, columns and numbers, the possibilities can be labeled
+
+The fact that each kind of constraint involves exactly one of something is what makes Sudoku an exact hitting set problem. The constraints can be represented by constraint sets. The problem is to select possibilities such that each constraint set contains (i.e., is hit by) exactly one selected possibility.
+
+In the standard 99 Sudoku variant, there are four kinds of constraints sets corresponding to the four kinds of constraints:
+
+Since there are 9 rows, 9 columns, 9 boxes and 9 numbers, there are 99=81 row-column constraint sets, 99=81 row-number constraint sets, 99=81 column-number constraint sets, and 99=81 box-number constraint sets: 81+81+81+81=324 constraint sets in all.
+
+In brief, the standard 99 Sudoku variant is an exact hitting set problem with 729 possibilities and 324 constraint sets. Thus the problem can be represented by a 729324 matrix.
+
+Although it is difficult to present the entire 729324 matrix, the general nature of the matrix can be seen from several snapshots:
+
+The complete 729324 matrix is available from Bob Hanson.
+
+Note that the set of possibilities RxCy#z can be arranged as a 999 cube in a 3-dimensional space with coordinates x, y, and z. Then each row Rx, column Cy, or number #z is a 991 "slice" of possibilities; each box Bw is a 9x33 "tube" of possibilities; each row-column constraint set RxCy, row-number constraint set Rx#z, or column-number constraint set Cy#z is a 9x11 "strip" of possibilities; each box-number constraint set Bw#z is a 3x31 "square" of possibilities; and each possibility RxCy#z is a 1x11 "cubie" consisting of a single possibility. Moreover, each constraint set or possibility is the intersection of the component sets. For example, R1C2#3 = R1  C2  #3, where  denotes set intersection.
+
+Although other Sudoku variations have different numbers of rows, columns, numbers and/or different kinds of constraints, they all involve possibilities and constraint sets, and thus can be seen as exact hitting set problems.
+
+The N queens problem is an example of a generalized exact cover problem.[3] The problem involves four kinds of constraints:
+
+Note that the 2N rank and file constraints form the primary constraints, while the 4N2 diagonal and reverse diagonals form the secondary constraints. Further, because each of first and last diagonal and reverse diagonals involves only one square on the chessboard, these can be omitted and thus one can reduce the number of secondary constraints to 4N6. The matrix for the N queens problem then has N2 rows and 6N6 columns, each row for a possible queen placement on each square on the chessboard, and each column for each constraint.

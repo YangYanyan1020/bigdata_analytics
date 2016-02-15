@@ -1,0 +1,9 @@
+The Bottleneck traveling salesman problem (bottleneck TSP) is a problem in discrete or combinatorial optimization. It is stated as follows: Find the Hamiltonian cycle in a weighted graph which minimizes the weight of the most weighty edge of the cycle.[1]
+
+The problem is known to be NP-hard. The decision problem version of this, "for a given length x, is there a Hamiltonian cycle in a graph g with no edge longer than x?", is NP-complete.[1]
+
+In an asymmetric bottleneck TSP, there are cases where the weight from node A to B is different from the weight from B to A (e. g. travel time between two cities with a traffic jam in one direction).
+
+Euclidean bottleneck TSP, or planar bottleneck TSP, is the bottleneck TSP with the distance being the ordinary Euclidean distance. The problem still remains NP-hard, however many heuristics work better.
+
+If the graph is a metric space then there is an efficient approximation algorithm that finds a Hamiltonian cycle with maximum edge weight being no more than twice the optimum.[2]

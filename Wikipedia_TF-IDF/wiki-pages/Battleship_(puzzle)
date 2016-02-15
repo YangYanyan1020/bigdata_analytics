@@ -1,0 +1,21 @@
+The Battleship puzzle (sometimes called Bimaru, Solitaire Battleships or Battleship Solitaire) is a logic puzzle based on the Battleship guessing game. It and its variants have appeared in several puzzle contests, including the World Puzzle Championship,[1] and puzzle magazines, such as Games magazine.[2]
+
+Solitaire Battleship was invented in Argentina by Jaime Poniachik and was first featured in 1982 in the Argentine magazine Humor & Juegos. Battleship gained more widespread popularity after its international debut at the first World Puzzle Championship in New York City in 1992. Battleship appeared in Games magazine the following year and remains a regular feature of the magazine. Variants of Battleship have emerged since the puzzle's inclusion in the first World Puzzle Championship.
+
+Battleship is played in a grid of squares that hides ships of different sizes. Numbers alongside the grid indicate how many squares in a row or column are occupied by part of a ship.
+
+The solitaire version of Battleship was invented in Argentina in 1982 under the name Batalla Naval, with the first published puzzles appearing in 1982 in the Spanish magazine Humor & Juegos. Battleship was created by the magazine's founder, Jaime Poniachik, along with its editors Eduardo Abel Gimenez, Jorge Varlotta, and Daniel Samoilovich.
+
+After 1982, no more Battleship puzzles were published until 1987, when they appeared in Juegos Para Gente De Mente, a renamed version of Humor & Juegos. The publishing company of Juegos Para Gente de Mente regularly publishes Battleship puzzles in its monthly magazine Enigmas Lgicos.
+
+Battleship made its international debut at the first World Puzzle Championship in New York in 1992 and met with success. The next World Puzzle Championship in 1993 featured a variant of Battleship that omitted some of the row and column numbers. Battleship was first published in Games magazine in 1993, the year after the first World Puzzle Championship. Other variants later emerged, including Hexagonal Battleship, 3D Battleship, and Diagonal Battleship.[3][4]
+
+In Battleship, an armada of battleships is hidden in a square grid of 1010 small squares. The armada includes one battleship four squares long, two cruisers three squares long, three destroyers two squares long, and four submarines one square in size. Each ship occupies a number of contiguous squares on the grid, arranged horizontally or vertically. The boats are placed so that no boat touches any other boat, not even diagonally.
+
+The goal of the puzzle is to discover where the ships are located. A grid may start with clues in the form of squares that have already been solved, showing a submarine, an end piece of a ship, a middle piece of a ship, or water. Each row and column also has a number beside it, indicating the number of squares occupied by ship parts in that row or column, respectively.[5]
+
+Variants of the standard form of solitaire battleship have included using larger or smaller grids (with comparable changes in the size of the hidden armada), as well as using a hexagonal grid.
+
+The basic solving strategy for a Battleship puzzle is to add segments to incomplete ships where appropriate, draw water in squares that are known not to contain a ship segment, and to complete ships in a row or column whose number is the same as the number of unsolved squares in that row or column, respectively. More advanced strategies include looking for places where the largest ship that has not yet been located can fit into the grid, and looking for rows and columns that are almost complete and determining if there is only one way to complete them.[5]
+
+Battleship is an NP-complete problem.[6] In 1997, former contributing editor to the Battleship column in Games Magazine[7] Moshe Rubin released Fathom It!, a popular Windows implementation of Battleship.[8]

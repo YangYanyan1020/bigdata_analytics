@@ -1,0 +1,15 @@
+Heyawake (Japanese: , "divided rooms") is a binary-determination logic puzzle published by Nikoli. As of 2013, five books consisting entirely of Heyawake puzzles have been published by Nikoli. It first appeared in Puzzle Communication Nikoli #39 (September 1992).
+
+Heyawake is played on a rectangular grid of cells with no standard size; the grid is divided into variously sized rectangular "rooms" by bold lines following the edges of the cells. Some rooms may contain a single number, typically printed in their upper-left cell; as originally designed, every room was numbered, but this is rarely necessary for solving and is no longer followed.
+
+Some of the cells in the puzzle are to be painted black; the object of the puzzle is to determine for each cell if it must be painted or must be left blank (remaining white). In practice, it is often easier to mark known "blank" cells in some wayfor example, by placing a dot in the center of the cell.
+
+The following rules determine which cells are which:
+
+Note that the first two rules also apply to (for example) Hitori puzzles, and thus these puzzles share some of their solving methods:
+
+More complex puzzles require combining Rule 1 and Rule 2 to make progress without guessing; the key is recognizing where the cells must assume one of two checkered patterns and one leads to a short circuit.
+
+The remaining rules differentiate Heyawake from other "dynasty" puzzles:
+
+The computational complexity of Heyawake has been analyzed recently:[1] deciding for a given instance of Heyawake whether there exists a solution to the puzzle is NP-complete. An interpretation of this theoretical result in layman's terms is that this puzzle is as hard to solve as the Boolean satisfiability problem, which is a well studied difficult problem in computer science.

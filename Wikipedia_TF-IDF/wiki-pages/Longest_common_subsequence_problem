@@ -1,0 +1,115 @@
+The longest common subsequence (LCS) problem is the problem of finding the longest subsequence common to all sequences in a set of sequences (often just two sequences). It differs from problems of finding common substrings: unlike substrings, subsequences are not required to occupy consecutive positions within the original sequences. The longest common subsequence problem is a classic computer science problem, the basis of data comparison programs such as the utility, and has applications in bioinformatics. It is also widely used by revision control systems such as Git for reconciling multiple changes made to a revision-controlled collection of files.
+
+For the general case of an arbitrary number of input sequences, the problem is NP-hard.[1] When the number of sequences is constant, the problem is solvable in polynomial time by dynamic programming (see Solution below). Assume you have sequences of lengths . A naive search would test each of the subsequences of the first sequence to determine whether they are also subsequences of the remaining sequences; each subsequence may be tested in time linear in the lengths of the remaining sequences, so the time for this algorithm would be
+
+For the case of two sequences of n and m elements, the running time of the dynamic programming approach is O(n  m). For an arbitrary number of input sequences, the dynamic programming approach gives a solution in
+
+There exist methods with lower complexity,[2] which often depend on the length of the LCS, the size of the alphabet, or both.
+
+Notice that the LCS is not necessarily unique; for example the LCS of "ABC" and "ACB" is both "AB" and "AC". Indeed, the LCS problem is often defined to be finding all common subsequences of a maximum length. This problem inherently has higher complexity, as the number of such subsequences is exponential in the worst case,[3] even for only two input strings.
+
+The LCS problem has an optimal substructure: the problem can be broken down into smaller, simple "subproblems", which can be broken down into yet simpler subproblems, and so on, until, finally, the solution becomes trivial. The LCS problem also has overlapping subproblems: the solution to high-level subproblems often reuse lower level subproblems. Problems with these two propertiesoptimal substructure and overlapping subproblemscan be approached by a problem-solving technique called dynamic programming, in which subproblem solutions are memoized rather than computed over and over. The procedure requires memoizationsaving the solutions to one level of subproblem in a table (analogous to writing them to a memo, hence the name) so that the solutions are available to the next level of subproblems. This method is illustrated here.
+
+The subproblems become simpler as the sequences become shorter. Shorter sequences are conveniently described using the term prefix. A prefix of a sequence is the sequence with the end cut off. Let S be the sequence (AGCA). Then, the sequence (AG) is one of the prefixes of S. Prefixes are denoted with the name of the sequence, followed by a subscript to indicate how many characters the prefix contains.[4] The prefix (AG) is denoted S , since it contains the first 2 elements of S. The possible prefixes of S are
+
+The solution to the LCS problem for two arbitrary sequences, X and Y, amounts to construct some function, LCS(X, Y), that gives the longest subsequences common to X and Y. That function relies on the following two properties.
+
+Suppose that two sequences both end in the same element. To find their LCS, shorten each sequence by removing the last element, find the LCS of the shortened sequences, and to that LCS append the removed element.
+
+In general, for any sequences X and Y of length n and m, if we denote their elements x to x and y to y and their prefixes X to X and Y to Y , then we can say this:
+
+where the caret ^ indicates that the following element, x , is appended to the sequence. Note that the LCS for X and Y involves determining the LCS of the shorter sequences, X and Y .
+
+Suppose that the two sequences X and Y do not end in the same symbol. Then the LCS of X and Y is the longer of the two sequences LCS(X ,Y ) and LCS(X ,Y ).
+
+To understand this property, consider the two following sequences:
+
+The LCS of these two sequences either ends with a G (the last element of sequence X) or does not.
+
+Case 1: the LCS ends with a G
+
+ Then it cannot end with a K. Thus it does not hurt to remove the K from sequence Y: if K were in the LCS, it would be its last character; as a consequence K is not in the LCS. We can then write: LCS(X ,Y ) = LCS(X , Y ).
+
+Case 2: the LCS does not end with a G
+
+ Then it does not hurt to remove the G from the sequence X (for the same reason as above). And then we can write: LCS(X ,Y ) = LCS(X , Y ).
+
+In any case, the LCS we are looking for is one of LCS(X , Y ) or LCS(X , Y ). Those two last LCS are both common subsequences to X and Y. LCS(X,Y) is the longest. Thus its value is the longest sequence of LCS(X , Y ) and LCS(X , Y ).
+
+Let two sequences be defined as follows: X = (x , x ...x ) and Y = (y , y ...y ). The prefixes of X are X ; the prefixes of Y are Y . Let LCS(X , Y ) represent the set of longest common subsequence of prefixes X and Y . This set of sequences is given by the following.
+
+To find the longest subsequences common to X and Y , compare the elements x and y . If they are equal, then the sequence LCS(X , Y ) is extended by that element, x . If they are not equal, then the longer of the two sequences, LCS(X , Y ), and LCS(X , Y ), is retained. (If they are both the same length, but not identical, then both are retained.) Notice that the subscripts are reduced by 1 in these formulas. That can result in a subscript of 0. Since the sequence elements are defined to start at 1, it was necessary to add the requirement that the LCS is empty when a subscript is zero.
+
+The longest subsequence common to R = (GAC), and C = (AGCAT) will be found. Because the LCS function uses a "zeroth" element, it is convenient to define zero prefixes that are empty for these sequences: R = ; and C = . All the prefixes are placed in a table with C in the first row (making it a olumn header) and R in the first column (making it a ow header).
+
+This table is used to store the LCS sequence for each step of the calculation. The second column and second row have been filled in with , because when an empty sequence is compared with a non-empty sequence, the longest common subsequence is always an empty sequence.
+
+LCS(R , C ) is determined by comparing the first elements in each sequence. G and A are not the same, so this LCS gets (using the "second property") the longest of the two sequences, LCS(R , C ) and LCS(R , C ). According to the table, both of these are empty, so LCS(R , C ) is also empty, as shown in the table below. The arrows indicate that the sequence comes from both the cell above, LCS(R , C ) and the cell on the left, LCS(R , C ).
+
+LCS(R , C ) is determined by comparing G and G. They match, so G is appended to the upper left sequence, LCS(R , C ), which is (), giving (G), which is (G).
+
+For LCS(R , C ), G and C do not match. The sequence above is empty; the one to the left contains one element, G. Selecting the longest of these, LCS(R , C ) is (G). The arrow points to the left, since that is the longest of the two sequences.
+
+For LCS(R , C ), A is compared with A. The two elements match, so A is appended to , giving (A).
+
+For LCS(R , C ), A and G do not match, so the longest of LCS(R , C ), which is (G), and LCS(R , C ), which is (A), is used. In this case, they each contain one element, so this LCS is given two subsequences: (A) and (G).
+
+For LCS(R , C ), A does not match C. LCS(R , C ) contains sequences (A) and (G); LCS(R , C ) is (G), which is already contained in LCS(R , C ). The result is that LCS(R , C ) also contains the two subsequences, (A) and (G).
+
+For LCS(R , C ), A matches A, which is appended to the upper left cell, giving (GA).
+
+For LCS(R , C ), A does not match T. Comparing the two sequences, (GA) and (G), the longest is (GA), so LCS(R , C ) is (GA).
+
+For LCS(R , C ), C and A do not match, so LCS(R , C ) gets the longest of the two sequences, (A).
+
+For LCS(R , C ), C and G do not match. Both LCS(R , C ) and LCS(R , C ) have one element. The result is that LCS(R , C ) contains the two subsequences, (A) and (G).
+
+For LCS(R , C ), C and C match, so C is appended to LCS(R , C ), which contains the two subsequences, (A) and (G), giving (AC) and (GC).
+
+For LCS(R , C ), C and A do not match. Combining LCS(R , C ), which contains (AC) and (GC), and LCS(R , C ), which contains (GA), gives a total of three sequences: (AC), (GC), and (GA).
+
+Finally, for LCS(R , C ), C and T do not match. The result is that LCS(R , C ) also contains the three sequences, (AC), (GC), and (GA).
+
+The final result is that the last cell contains all the longest subsequences common to (AGCAT) and (GAC); these are (AC), (GC), and (GA). The table also shows the longest common subsequences for every possible pair of prefixes. For example, for (AGC) and (GA), the longest common subsequence are (A) and (G).
+
+Calculating the LCS of a row of the LCS table requires only the solutions to the current row and the previous row. Still, for long sequences, these sequences can get numerous and long, requiring a lot of storage space. Storage space can be saved by saving not the actual subsequences, but the length of the subsequence and the direction of the arrows, as in the table below.
+
+The actual subsequences are deduced in a "traceback" procedure that follows the arrows backwards, starting from the last cell in the table. When the length decreases, the sequences must have had a common element. Several paths are possible when two arrows are shown in a cell. Below is the table for such an analysis, with numbers colored in cells where the length is about to decrease. The bold numbers trace out the sequence, (GA).[5]
+
+For two strings and , the length of the shortest common supersequence is related to the length of the LCS by[2]
+
+The edit distance when only insertion and deletion is allowed (no substitution), or when the cost of the substitution is the double of the cost of an insertion or deletion, is:
+
+The function below takes as input sequences and computes the LCS between and for all and , and stores it in . will contain the length of the LCS of and .
+
+Alternatively, memoization could be used.
+
+The following function backtracks the choices taken when computing the table. If the last characters in the prefixes are equal, they must be in an LCS. If not, check what gave the largest LCS of keeping and , and make the same choice. Just choose one if they were equally long. Call the function with and .
+
+If choosing and would give an equally long result, read out both resulting subsequences. This is returned as a set by this function. Notice that this function is not polynomial, as it might branch in almost every step if the strings are similar.
+
+This function will backtrack through the C matrix, and print the diff between the two sequences. Notice that you will get a different answer if you exchange and , with and below.
+
+Let be   and be  . The longest common subsequence between and is  . The table shown below, which is generated by the function , shows the lengths of the longest common subsequences between prefixes of and . The th row and th column shows the length of the LCS between and .
+
+The highlighted numbers show the path the function would follow from the bottom right to the top left corner, when reading out an LCS. If the current symbols in and are equal, they are part of the LCS, and we go both up and left (shown in bold). If not, we go up or left, depending on which cell has a higher number. This corresponds to either taking the LCS between and , or and .
+
+Several optimizations can be made to the algorithm above to speed it up for real-world cases.
+
+The C matrix in the naive algorithm grows quadratically with the lengths of the sequences. For two 100-item sequences, a 10,000-item matrix would be needed, and 10,000 comparisons would need to be done. In most real-world cases, especially source code diffs and patches, the beginnings and ends of files rarely change, and almost certainly not both at the same time. If only a few items have changed in the middle of the sequence, the beginning and end can be eliminated. This reduces not only the memory requirements for the matrix, but also the number of comparisons that must be done.
+
+In the best-case scenario, a sequence with no changes, this optimization would completely eliminate the need for the C matrix. In the worst-case scenario, a change to the very first and last items in the sequence, only two additional comparisons are performed.
+
+Most of the time taken by the naive algorithm is spent performing comparisons between items in the sequences. For textual sequences such as source code, you want to view lines as the sequence elements instead of single characters. This can mean comparisons of relatively long strings for each step in the algorithm. Two optimizations can be made that can help to reduce the time these comparisons consume.
+
+A hash function or checksum can be used to reduce the size of the strings in the sequences. That is, for source code where the average line is 60 or more characters long, the hash or checksum for that line might be only 8 to 40 characters long. Additionally, the randomized nature of hashes and checksums would guarantee that comparisons would short-circuit faster, as lines of source code will rarely be changed at the beginning.
+
+There are three primary drawbacks to this optimization. First, an amount of time needs to be spent beforehand to precompute the hashes for the two sequences. Second, additional memory needs to be allocated for the new hashed sequences. However, in comparison to the naive algorithm used here, both of these drawbacks are relatively minimal.
+
+The third drawback is that of collisions. Since the checksum or hash is not guaranteed to be unique, there is a small chance that two different items could be reduced to the same hash. This is unlikely in source code, but it is possible. A cryptographic hash would therefore be far better suited for this optimization, as its entropy is going to be significantly greater than that of a simple checksum. However, the benefits may not be worth the setup and computational requirements of a cryptographic hash for small sequence lengths.
+
+If only the length of the LCS is required, the matrix can be reduced to a matrix with ease, or to a vector (smarter) as the dynamic programming approach only needs the current and previous columns of the matrix. Hirschberg's algorithm allows the construction of the optimal sequence itself in the same quadratic time and linear space bounds.[6]
+
+Several algorithms exist that are worst-case faster than the presented dynamic programming approach.[7] For problems with a bounded alphabet size, the Method of Four Russians can be used to reduce the running time of the dynamic programming algorithm by a logarithmic factor.[8] For (and ), the number of matches between the two sequences, there is an algorithm that performs in time.[9]
+
+Beginning with Chvtal & Sankoff (1975),[10] a number of researchers have investigated the behavior of the longest common subsequence length when the two given strings are drawn randomly from the same alphabet. When the alphabet size is constant, the expected length of the LCS is proportional to the length of the two strings, and the constants of proportionality (depending on alphabet size) are known as the ChvtalSankoff constants. Their exact values are not known, but upper and lower bounds on their values have been proven,[11] and it is known that they grow inversely proportionally to the square root of the alphabet size.[12] Simplified mathematical models of the longest common subsequence problem have been shown to be controlled by the TracyWidom distribution.[13]

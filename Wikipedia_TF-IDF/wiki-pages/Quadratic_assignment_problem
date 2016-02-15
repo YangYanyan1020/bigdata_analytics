@@ -1,0 +1,15 @@
+The quadratic assignment problem (QAP) is one of the fundamental combinatorial optimization problems in the branch of optimization or operations research in mathematics, from the category of the facilities location problems.
+
+The problem models the following real-life problem:
+
+Intuitively, the cost function encourages factories with high flows between each other to be placed close together.
+
+The problem statement resembles that of the assignment problem, except that the cost function is expressed in terms of quadratic inequalities, hence the name.
+
+The formal definition of the quadratic assignment problem is as follows:
+
+Usually weight and distance functions are viewed as square real-valued matrices, so that the cost function is written down as:
+
+The problem is NP-hard, so there is no known algorithm for solving this problem in polynomial time, and even small instances may require long computation time. It was also proven that the problem does not have an approximation algorithm running in polynomial time for any factor, unless P = NP.[1] The travelling salesman problem may be seen as a special case of QAP if one assumes that the flows connect all facilities only along a single ring, all flows have the same non-zero (constant) value. Many other problems of standard combinatorial optimization problems may be written in this form.
+
+In addition to the original plant location formulation, QAP is a mathematical model for the problem of placement of interconnected electronic components onto a printed circuit board or on a microchip, which is part of the place and route stage of computer aided design in the electronics industry.

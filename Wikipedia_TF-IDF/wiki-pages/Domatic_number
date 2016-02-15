@@ -1,0 +1,21 @@
+In graph theory, a domatic partition of a graph is a partition of into disjoint sets , ,..., such that each V is a dominating set for G. The figure on the right shows a domatic partition of a graph; here the dominating set consists of the yellow vertices, consists of the green vertices, and consists of the blue vertices.
+
+The domatic number is the maximum size of a domatic partition, that is, the maximum number of disjoint dominating sets. The graph in the figure has domatic number 3. It is easy to see that the domatic number is at least 3 because we have presented a domatic partition of size 3. To see that the domatic number is at most 3, we first review a simple upper bound.
+
+Let be the minimum degree of the graph . The domatic number of is at most . To see this, consider a vertex of degree . Let consist of and its neighbours. We know that (1) each dominating set must contain at least one vertex in (domination), and (2) each vertex in is contained in at most one dominating set (disjointness). Therefore there are at most disjoint dominating sets.
+
+The graph in the figure has minimum degree , and therefore its domatic number is at most 3. Hence we have shown that its domatic number is exactly 3; the figure shows a maximum-size domatic partition.
+
+If there is no isolated vertex in the graph (that is, 1), then the domatic number is at least 2. To see this, note that (1) a weak 2-coloring is a domatic partition if there is no isolated vertex, and (2) any graph has a weak 2-coloring. Alternatively, (1) a maximal independent set is a dominating set, and (2) the complement of a maximal independent set is also a dominating set if there are no isolated vertices.
+
+The figure on the right shows a weak 2-coloring, which is also a domatic partition of size 2: the dark nodes are a dominating set, and the light nodes are another dominating set (the light nodes form a maximal independent set). See weak coloring for more information.
+
+Finding a domatic partition of size 1 is trivial: let . Finding a domatic partition of size 2 (or determining that it does not exist) is easy: check if there are isolated nodes, and if not, find a weak 2-coloring.
+
+However, finding a maximum-size domatic partition is computationally hard. Specifically, the following decision problem, known as the domatic number problem, is NP-complete: given a graph and an integer , determine whether the domatic number of is at least . Therefore the problem of determining the domatic number of a given graph is NP-hard, and the problem of finding a maximum-size domatic partition is NP-hard as well.
+
+There is a polynomial-time approximation algorithm with a logarithmic approximation guarantee,[1] that is, it is possible to find a domatic partition whose size is within a factor of the optimum.
+
+However, under plausible complexity-theoretic assumptions, there is no polynomial-time approximation algorithm with a sub-logarithmic approximation factor.[1] More specifically, a polynomial-time approximation algorithm for domatic partition with the approximation factor for a constant would imply that all problems in NP can be solved in slightly super-polynomial time .
+
+Let G=(UV,E) be a bipartite graph without isolated nodes; all edges are of the form {u,v}E with uU and vV. Then {U,V} is both a vertex 2-coloring and a domatic partition of size 2; the sets U and V are independent dominating sets. The chromatic number of G is exactly 2; there is no vertex 1-coloring. The domatic number of G is at least 2. It is possible that there is a larger domatic partition; for example, the complete bipartite graph K for any n2 has domatic number n.

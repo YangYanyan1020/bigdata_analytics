@@ -1,0 +1,13 @@
+In graph theory, the complement or inverse of a graph G is a graph H on the same vertices such that two distinct vertices of H are adjacent if and only if they are not adjacent in G. That is, to generate the complement of a graph, one fills in all the missing edges required to form a complete graph, and removes all the edges that were previously there.[1] It is not, however, the set complement of the graph; only the edges are complemented.
+
+Let G=(V,E) be a simple graph and let K consist of all 2-element subsets of V. Then H=(V,K\E) is the complement of G.[2] For directed graphs, the complement can be defined in the same way, as a directed graph on the same vertex set, using the set of all 2-element ordered pairs of V in place of the set K in the formula above.
+
+The complement is not defined for multigraphs. In graphs that allow self-loops (but not multiple adjacencies) the complement of G may be defined by adding a self-loop to every vertex that does not have one in G, and otherwise using the same formula as above. This operation is, however, different from the one for simple graphs, since applying it to a graph with no self-loops would result in a graph with self-loops on all vertices.
+
+Several graph-theoretic concepts are related to each other via complement graphs:
+
+A self-complementary graph is a graph that is isomorphic to its own complement.[1] Examples include the four-vertex path graph and five-vertex cycle graph.
+
+Several classes of graphs are self-complementary, in the sense that the complement of any graph in one of these classes is another graph in the same class.
+
+In the analysis of algorithms on graphs, the distinction between a graph and its complement is an important one, because a sparse graph (one with a small number of edges compared to the number of pairs of vertices) will in general not have a sparse complement, and so an algorithm that takes time proportional to the number of edges on a given graph may take a much larger amount of time if the same algorithm is run on an explicit representation of the complement graph. Therefore, researchers have studied algorithms that perform standard graph computations on the complement of an input graph, using an implicit graph representation that does not require the explicit construction of the complement graph. In particular, it is possible to simulate either depth-first search or breadth-first search on the complement graph, in an amount of time that is linear in the size of the given graph, even when the complement graph may have a much larger size.[9] It is also possible to use these simulations to compute other properties concerning the connectivity of the complement graph.[9][10]

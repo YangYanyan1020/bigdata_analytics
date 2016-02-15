@@ -1,0 +1,9 @@
+In computational complexity theory, the Set Splitting problem is the following decision problem: given a family F of subsets of a finite set S, decide whether there exists a partition of S into two subsets S , S such that all elements of F are split by this partition, i.e., none of the elements of F is completely in S or S . Set Splitting is one of Garey&Johnson's classical NP-complete problems.[1]
+
+The optimization version of this problem is called Max Set Splitting and requires finding the partition which maximizes the number of split elements of F. It is an APX-complete[2] problem and hence in NPO. When each element of F is restricted to be of cardinality exactly k, the decision variant is called Ek-Set Splitting and the optimization version Max Ek-Set Splitting. For k  2, the former remains NP complete and the latter APX complete.[3] The Weighted Set Splitting is a variant in which the subsets in F have weights and the objective is to maximize the total weight of the split subsets.
+
+Set Splitting is special case of the Not-All-Equal Satisfiability problem without negated variables. Additionally, Ek-Set Splitting equals non-monochromatic graph coloring of k-uniform hypergraphs. For k=2, the optimization variant reduces to the well-known Maximum cut.[4]
+
+For k  4, Ek-Set Splitting is approximation resistant. That is, unless P=NP, there is no polynomial-time (factor) approximation algorithm which does essentially better than a random partition.[5][4]
+
+An alternative formulation of the decision variant is the following: given an integer k, does there exist a partition of S which splits at least k subsets of F? This formulation is fixed-parameter tractable - for every fixed k, there exists a polynomial-time algorithm for solving the problem.[6]

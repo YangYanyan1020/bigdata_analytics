@@ -1,0 +1,1 @@
+In computer science, the shortest total path length spanning tree is, given an n-node undirected graph G(V, E); positive integer B, does there exist a spanning tree T(V, F) of G such that the sum over all pairs of nodes u and v of the length of the path between u and v in T is no greater than B?

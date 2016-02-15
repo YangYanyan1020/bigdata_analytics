@@ -1,0 +1,35 @@
+A sparse approximation is a sparse vector that approximately solves a system of equations. Techniques for finding sparse approximations have found wide use in applications such as image processing, audio processing, biology, and document analysis[citation needed].
+
+Consider a linear system of equations , where is an underdetermined matrix and . , called as the dictionary or the design matrix, is given. The problem is to estimate the signal , subject to the constraint that it is sparse. The underlying motivation for sparse decomposition problems is that even though the observed values are in high-dimensional space, the actual signal is organized in some lower-dimensional subspace .
+
+Sparsity implies that only a few components of are non-zero and the rest are zero. This implies that can be decomposed as a linear combination of only a few vectors in , called atoms. itself is over-complete . Such vectors are called as the basis of . However, unlike other dimensionality reducing decomposition techniques such as Principal Component Analysis, the basis vectors are not required to be orthogonal.
+
+The sparse decomposition problem is represented as,
+
+where is a pseudo-norm, , which counts the number of non-zero components of . This problem is NP-Hard with a reduction to NP-complete subset selection problems in combinatorial optimization. A convex relaxation of the problem can instead be obtained by taking the norm instead of the norm, where . The norm induces sparsity under certain conditions.[1]
+
+Often the observations are noisy. By imposing an norm on the data-fitting term and relaxing the equality constraint, the sparse decomposition problem is given by,
+
+where is a slack variable and is the sparsity-inducing term. The slack variable balances the trade-off between fitting the data perfectly, and employing a sparse solution.
+
+There are several variations to the basic sparse approximation problem.
+
+In the original version of the problem, any atoms in the dictionary can be picked. In the structured (block) sparsity model, instead of picking atoms individually, groups of atoms are to be picked. These groups can be overlapping and of varying size. The objective is to represent such that it is sparse in the number of groups selected. Such groups appear naturally in many problems. For example, in object classification problems the atoms can represent images, and groups can represent category of objects.
+
+The original version of the problem is defined for only a single point and its noisy observation. Often, a single point can have more than one sparse representation with similar data fitting errors. In the collaborative sparse coding model, more than one observation of the same point is available. Hence, the data fitting error is defined as the sum of the norm for all points.
+
+There are several algorithms that have been developed for solving sparse approximation problem.
+
+Matching pursuit is a greedy iterative algorithm for approximatively solving the original pseudo-norm problem. Matching pursuit works by finding a basis vector in that maximizes the correlation with the residual (initialized to ), and then recomputing the residual and coefficients by projecting the residual on all atoms in the dictionary using existing coefficients. Matching pursuit suffers from the drawback that an atom can be picked multiple times which is addressed in orthogonal matching pursuit.
+
+Orthogonal Matching Pursuit is similar to Matching Pursuit, except that an atom once picked, cannot be picked again. The algorithm maintains an active set of atoms already picked, and adds a new atom at each iteration. The residual is projected on to a linear combination of all atoms in the active set, so that an orthogonal updated residual is obtained. Both Matching Pursuit and Orthogonal Matching Pursuit use the norm.
+
+The LASSO method solves the norm version of the problem. In LASSO, instead of projecting the residual on some atom as in Matching Pursuit, the residual is moved by a small step in the direction of the atom iteratively.
+
+Projected Gradient Descent methods operate in a similar fashion with the Gradient Descent: the current gradient provides the information to point to new search directions. Since we are looking for a sparse solution, the putative solutions are projected onto the sparse scaffold of vectors.[2] [3] Because the projection can often be viewed as a thresholding operator, the described algorithm is also known as Iterative Thresholding algorithm. [4] The specific form of the thresholding operator is closely related to the chosen penalty function. For norm, the corresponding thresholding operator is known as hard thresholding. For norm, the corresponding thresholding operator is known as soft thresholding.
+
+There are several other methods for solving sparse decomposition problems[5]
+
+Sparse approximation has been used in image processing, biology, document analysis, and audio analysis for representation, compression, and estimation.
+
+In the audio domain, sparse approximation has been applied to the analysis of speech, environmental sounds, and music. For classification of everyday sound samples, Adiloglu et al.[7] decomposed sounds in terms of a dictionary of Gammatone functions. Applying matching pursuit, they yielded a point pattern of time-frequency components. They then defined a dissimilarity of two sounds via a one-to-one correspondence between the most prominent atoms of two sounds. Scholler and Purwins [8] have used sparse approximation for the classification of drum sounds based on atom counts resulting from a sparse approximation with a learned sound dictionary including the optimisation of the atom length.

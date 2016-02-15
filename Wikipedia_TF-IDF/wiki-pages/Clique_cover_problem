@@ -1,0 +1,5 @@
+In computational complexity theory, finding a minimum clique cover is a graph-theoretical NP-complete problem. The problem was one of Richard Karp's original 21 problems shown NP-complete in his 1972 paper "Reducibility Among Combinatorial Problems".
+
+The clique cover problem (also sometimes called partition into cliques) is the problem of determining whether the vertices of a graph can be partitioned into k cliques. Given a partition of the vertices into k sets, it can be verified in polynomial time that each set forms a clique, so the problem is in NP. The NP-completeness of clique cover follows by reduction from GRAPH k-COLOURABILITY. To see this, first transform an instance G of GRAPH k-COLOURABILITY into its complement graph G'. A partition of G' into k cliques then corresponds to finding a partition of the vertices of G into k independent sets; each of these sets can then be assigned one colour to yield a k-colouring. The minimum k for which a clique cover exists is called the clique cover number of the given graph.
+
+The related clique edge cover problem considers sets of cliques that include all of the edges of a given graph. It is also NP-complete.

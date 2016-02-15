@@ -1,0 +1,31 @@
+The Euclidean minimum spanning tree or EMST is a minimum spanning tree of a set of n points in the plane (or more generally in d), where the weight of the edge between each pair of points is the Euclidean distance between those two points. In simpler terms, an EMST connects a set of dots using lines such that the total length of all the lines is minimized and any dot can be reached from any other by following the lines.
+
+In the plane, an EMST for a given set of points may be found in (n log n) time using O(n) space in the algebraic decision tree model of computation. Faster randomized algorithms of complexity O(nloglogn) are known in more powerful models of computation that more accurately model the abilities of real computers.[1]
+
+In higher dimensions (d  3), finding an optimal algorithm remains an open problem.
+
+An asymptotic lower bound of (n log n) for time complexity of the EMST problem can be established in restricted models of computation, such as the algebraic decision tree and algebraic computation tree models, in which the algorithm has access to the input points only through certain restricted primitives that perform simple algebraic computations on their coordinates: in these models, the closest pair of points problem requires (nlogn) time, but the closest pair is necessarily an edge of the EMST, so the EMST also requires this much time.[2] However, if the input points have integer coordinates and bitwise operations and table indexing operations are permitted using those coordinates, then faster algorithms are possible.[1]
+
+The simplest algorithm to find an EMST in two dimensions, given n points, is to actually construct the complete graph on n vertices, which has n(n-1)/2 edges, compute each edge weight by finding the distance between each pair of points, and then run a standard minimum spanning tree algorithm (such as the version of Prim's algorithm or Kruskal's algorithm) on it. Since this graph has (n2) edges for n distinct points, constructing it already requires (n2) time. This solution also requires (n2) space to store all the edges.
+
+A better approach to finding the EMST in a plane is to note that it is a subgraph of every Delaunay triangulation of the n points, a much-reduced set of edges:
+
+The final result is an algorithm taking O(n log n) time and O(n) space.
+
+If the input coordinates are integers and can be used as array indices, faster algorithms are possible: the Delaunay triangulation can be constructed by a randomized algorithm in O(nloglogn) expected time.[1] Additionally, since the Delaunay triangulation is a planar graph, its minimum spanning tree can be found in linear time by a variant of Borvka's algorithm that removes all but the cheapest edge between each pair of components after each stage of the algorithm.[3] Therefore, the total expected time for this algorithm is O(nloglogn).[1]
+
+The problem can also be generalized to n points in the d-dimensional space d. In higher dimensions, the connectivity determined by the Delaunay triangulation (which, likewise, partitions the convex hull into d-dimensional simplices) contains the minimum spanning tree; however, the triangulation might contain the complete graph.[4] Therefore, finding the Euclidean minimum spanning tree as a spanning tree of the complete graph or as a spanning tree of the Delaunay triangulation both take O(dn2) time. For three dimensions it is possible to find the minimum spanning tree in time O((nlogn)4/3), and in any dimension greater than three it is possible to solve it in a time that is faster than the quadratic time bound for the complete graph and Delaunay triangulation algorithms.[4] For uniformly random point sets it is possible to compute minimum spanning trees as quickly as sorting.[5] Using a well-separated pair decomposition, it is possible to produce a (1+)-approximation in O(n log n) time.[6]
+
+All edges of an EMST are edges of a relative neighborhood graph,[7][8][9] which in turn are edges of a Gabriel graph, which are edges in a Delaunay triangulation of the points,[10][11] as can be proven via the equivalent contrapositive statement: every edge not in a Delaunay triangulation is also not in any EMST. The proof is based on two properties of minimum spanning trees and Delaunay triangulations:
+
+Consider an edge e between two input points p and q which is not an edge of a Delaunay triangulation. Property 2 implies that the circle C with e as its diameter must contain some other point r inside. But then r is closer to both p and q than they are to each other, and so the edge from p to q is the longest edge in the cycle of points p  q  r  p, and by property 1 e is not in any EMST.
+
+The expected size of the EMST for large numbers of points has been determined by J. Michael Steele. If is the density of the probability function for picking points, then for large and the size of the EMST is approximately
+
+where is a constant depending only on the dimension . The exact value of the constants are unknown but can be estimated from empirical evidence.
+
+An obvious application of Euclidean minimum spanning trees is to find the cheapest network of wires or pipes to connect a set of places, assuming the links cost a fixed amount per unit length. However, while these give an absolute lower bound on the amount of connection needed, most such networks prefer a k-connected graph to a tree, so that failure of an any individual link will not split the network into parts.
+
+Another application of EMSTs is a constant-factor approximation algorithm for approximately solving the Euclidean traveling salesman problem, the version of the traveling salesman problem on a set of points in the plane with edges labelled by their length. This realistic variation of the problem can be solved within a factor of 2 by computing the EMST, doing a walk along its boundary which outlines the entire tree, and then removing all but one occurrence of each vertex from this walk.
+
+The realization problem for Euclidean minimum spanning trees is stated as follows: Given a tree T=(V,E), find a location D(u) for each vertex uV so that T is a minimum spanning tree of D(u):uV, or determine that no such locations exist. Testing of the existence of a realization in the plane is NP-hard.[12]
