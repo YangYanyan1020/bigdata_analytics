@@ -1,90 +1,71 @@
-# Yahoo Finance Outlier Detection
+# Stock Price Outlier Detection
 
 ###Steps
 
-1. Use the `yahoo-finance` api to obtain stock data of a list of companies. Company
-symbols are needed obtain the company's stock data.
+Use the `yahoo-finance` api to collect stock price information for each company. The NYSE symbols for each company are required to obtain the stock price data.
 
   ```python
   from yahoo_finance import Share
 
   symbols = ['LNKD', 'GOOG', 'FB', 'MSFT', 'AMZN']
   company_names = ['LinkedIn', 'Google', 'Facebook', 'Microsoft', 'Amazon']
-
-  # Holds the yahoo-finance object for all companies
   companies = []
-
   for symbol in symbols:
       companies.append(Share(symbol))
   ```
 
-2. Obtain company stock price in intervals of one minute for 30 minutes. Store
-these values on a new line in separate files. These files are stored inside a
-folder named `Stock-Prices`.
+Obtain company stock price in intervals of one minute for 30 minutes. Store
+these values on a new line in separate files. These files are stored in the directory `stock-values/`
 
   ```python
   def get_current_price(companies, company_names):
-      for i, company in enumerate(companies):
-          company.refresh()
-          price = company.get_price()
-          print company.symbol + ' ' + `price`
+    for i, company in enumerate(companies):
+        company.refresh()
+        price = company.get_price()
 
-          # Store the price in separate text files.
-          with open('Stock-Prices/' + company_names[i] + '_shares.txt', 'a') as f:
-              f.write(price + '\n')
+        # Store the price in separate text files.
+        with open('Stock-Prices/' + company_names[i] + '_shares.txt', 'a') as f:
+            f.write(price + '\n')
 
   start_time = time.time()
   count = 0
 
   while count < 30:
-      get_current_price(companies, company_names)
-      print ''
-      count += 1
-      # intervals of 1 min
-      time.sleep(60)
+    get_current_price(companies, company_names)
+    count += 1
+    # intervals of 1 min
+    time.sleep(60)
   ```
 
-3. Create separate RDDs for each company's stock data.
+With the collected stock data, we create an RDD of stock prices for every company. Since the prices are stored as strings in the `.txt` files, we need to convert them into floating point numbers.
 
   ```python
   from os import listdir
 
-  files = [ f for f in listdir('./Stock-Prices') if '.txt' in f ]
+  files = [ f for f in listdir('./stock-values') if '.txt' in f ]
   for f in files:
-      rdd = sc.textFile("Stock-Prices/" + f)
+    rdd = sc.textFile('stock-values/' + f)
+    prices = rdd.map(lambda s : float(s))
   ```
-
-4. Prices in each line of the RDD are in string format. We need to convert them
-to float type.
+We now find the mean and standard deviation of the stock prices for each company using the `.stats()` function of RDD.
 
   ```python
-  prices = rdd.map(lambda s : float(s))
+  stats = prices.stats()
+  mean = stats.mean()
+  stdev = stats.stdev()
   ```
 
-5. We now find the mean and standard deviation of the stock prices for each company.
-
-  ```python
-  mean = prices.mean()
-  stdev = prices.stdev()
-  ```
-
-6. To find the outliers we see if the difference between any value and the mean
-is greater than twice the standard deviation.
+To find the outliers we find values which are greater than 2 standard deviations away from the mean.
 
   ```python
   outliers = prices.filter(lambda p: abs(p - mean) > 2 * stdev)
   ```
-7. And finally print the outliers
-
-  ```python
-  print "Outliers in " + f[:len(f)-4] + ": " + `outliers.collect()`
-  ```
-
-8. Final output...
-  ```
-  Outliers in LinkedIn_shares: [102.49, 102.49]
-  Outliers in Microsoft_shares: [49.1]
-  Outliers in Facebook_shares: []
-  Outliers in Amazon_shares: [506.7, 506.7]
-  Outliers in Google_shares: []
+And finally we print the values which are outliers in the terminal itself.
+```
+Outliers by Company:
+Amazon_shares.txt: [507.9, 507.9]
+Facebook_shares.txt: []
+Google_shares.txt: []
+LinkedIn_shares.txt: [100.62, 100.62, 100.62]
+Microsoft_shares.txt: [49.1]
   ```
