@@ -3,3 +3,4 @@ DS_Store
 *.pyc
 kitchensink/
 *.crc
+.ipynb_checkpoints/
