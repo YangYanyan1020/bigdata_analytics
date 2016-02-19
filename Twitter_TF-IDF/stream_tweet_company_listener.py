@@ -1,9 +1,6 @@
 from tweepy.streaming import StreamListener
 import json
 import time
-import boto3
-
-sqs = boto3.resource('sqs')
 
 # Companies to filter with
 keywords = ['facebook', 'google', 'amazon', 'microsoft', 'twitter', 'linkedin', 'apple']
