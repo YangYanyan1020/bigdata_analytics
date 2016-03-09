@@ -4,5 +4,4 @@ DS_Store
 kitchensink/
 *.crc
 .ipynb_checkpoints/
-playground/
 stock_hourly_data/
