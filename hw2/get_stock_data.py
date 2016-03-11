@@ -5,7 +5,6 @@ import urllib2
 # https://www.google.com/finance/historical?q=NYSE%3AMCD&output=csv
 BASE_URL = 'http://www.google.com/finance/historical?'
 PARAMS = '&output=csv'  # this URL gets historical data for 1 year by default
-stocks = [('BAC', 'NYSE'),('C', 'NYSE'), ('IBM', 'NYSE'), ('AAPL', 'NASDAQ'), ('GE', 'NYSE'), ('T', 'NYSE')]
 nyse_stocks = ['BAC', 'C', 'IBM', 'GE', 'T', 'MCD', 'NKE', 'TWTR']
 nasdaq_stocks = ['AAPL', 'TSLA']
 
