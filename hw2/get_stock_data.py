@@ -13,7 +13,7 @@ for stock in nyse_stocks:
     company_str = nyse_query + stock
     target_url = BASE_URL + company_str + PARAMS
     data = urllib2.urlopen(target_url)
-    filename = 'stock_hourly_data/' + stock + '.csv'
+    filename = 'stock_data/' + stock + '.csv'
     f = open(filename, 'a')
     for line in data:
         f.write(line)
@@ -25,7 +25,7 @@ for stock in nasdaq_stocks:
     company_str = nasdaq_query + stock
     target_url = BASE_URL + company_str + PARAMS
     data = urllib2.urlopen(target_url)
-    filename = 'stock_hourly_data/' + stock + '.csv'
+    filename = 'stock_data/' + stock + '.csv'
     f = open(filename, 'a')
     for line in data:
         f.write(line)
