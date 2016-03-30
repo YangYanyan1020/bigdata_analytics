@@ -28,18 +28,20 @@ dest[INDEX(a, b)] = (0.299*r_img[INDEX(a, b)]+0.587*g_img[INDEX(a, b)]+0.114*b_i
 """
     )
 
-a = scm.imread('Lenna.png').astype(np.float32)
-row, col = a.shape
-print a
+a = scm.imread('./imgs/Valle_de_La_Orotava_qtl1.jpg').astype(np.float32)
+# print a
+row, col, dim = a.shape
 r_img = a[:, :, 0].reshape(row * col, order='F')
 g_img = a[:, :, 1].reshape(row * col, order='F')
-b_img = a[:, :, 2].reshape((row * col, order='F')
+b_img = a[:, :, 2].reshape(row * col, order='F')
 dest=r_img
-print dest
+# print dest
 rgb2gray = mod.get_function("rgb2gray")
 rgb2gray(drv.Out(dest), drv.In(r_img), drv.In(g_img),drv.In(b_img),block=(1024, 1, 1), grid=(64, 1, 1))
 
+# convert flat array back to image
 dest=np.reshape(dest,(row,col), order='F')
-scm.imsave('Lena-gray.png', dest)
+# save the grayscale image in the file
+scm.imsave('Valle_de_La_Orotava_qtl1-gray.png', dest)
 p.imshow(dest)
 p.show()
