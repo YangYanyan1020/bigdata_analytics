@@ -29,16 +29,17 @@ dest[INDEX(a, b)] = (0.299*r_img[INDEX(a, b)]+0.587*g_img[INDEX(a, b)]+0.114*b_i
     )
 
 a = scm.imread('Lenna.png').astype(np.float32)
+row, col = a.shape
 print a
-r_img = a[:, :, 0].reshape(65536, order='F')
-g_img = a[:, :, 1].reshape(65536, order='F')
-b_img = a[:, :, 2].reshape(65536, order='F')
+r_img = a[:, :, 0].reshape(row * col, order='F')
+g_img = a[:, :, 1].reshape(row * col, order='F')
+b_img = a[:, :, 2].reshape((row * col, order='F')
 dest=r_img
 print dest
 rgb2gray = mod.get_function("rgb2gray")
 rgb2gray(drv.Out(dest), drv.In(r_img), drv.In(g_img),drv.In(b_img),block=(1024, 1, 1), grid=(64, 1, 1))
 
-dest=np.reshape(dest,(256,256), order='F')
+dest=np.reshape(dest,(row,col), order='F')
 scm.imsave('Lena-gray.png', dest)
 p.imshow(dest)
 p.show()

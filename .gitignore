@@ -5,3 +5,4 @@ kitchensink/
 *.crc
 .ipynb_checkpoints/
 stock_hourly_data/
+*.pem
