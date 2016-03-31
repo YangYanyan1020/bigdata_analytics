@@ -4,10 +4,14 @@
 from __future__ import division
 
 """ 
-Multiples two square matrices together using multiple blocks and shared memory. 
+This code is adapted from the example found at : https://wiki.tiker.net/PyCuda/Examples/MatrixmulTiled
+
+The program takes 2 square matrices as numpy arrays, and multiplies two square matrices together using multiple blocks and shared memory. 
 Each thread block is assigned a "tile" of the resulting matrix and is responsible
 for generating the elements in that tile.  Each thread in a block computes one element 
 of the tile.
+
+We also compute the difference in the result when the calculations are done on the CPU vs the GPU using the gpuarray module of pycuda
 """
 
 import numpy as np
@@ -85,14 +89,28 @@ __global__ void MatrixMulKernel(float *A, float *B, float *C)
 """
 
 # define the (square) matrix size
-MATRIX_SIZE = 128*5
+# Since we want to work with matrices of size 50 mb or so, we need to do some calculations
+# to determine what the size of the input sqaure matrices will be
+'''
+1 float = 8 bits
+50 mb = 50 * 1024 * 1024
+Total number of floats required in matrices = 50 * 1024 * 1024 / 8
+
+Using this, the size of the matrix = sqrt(50 * 1024 * 1024 / 8) = 2560
+Hence, to manipulate matrices of size 50 mb each, we need to set the size of the matrix as 2560 x 2560
+'''
+MATRIX_SIZE = 2560 
 
 # define size of blocks and tiles sub-matrix 
 # (we assume that the block size is same as tile size)
+# pycuda will assign a particular number of threads to each block
+# checking the output of dump_properties.py file, we see that we can have at most
+# 1024 threads per block
+# as long as the total number of elements in a tile are less than 1024, pycuda can execute this code without any problems 
 TILE_SIZE = 32 
 BLOCK_SIZE = TILE_SIZE
 
-# create two random square matrices
+# create two random square matrices, each of size 50 mb
 a_cpu = np.random.randn(MATRIX_SIZE, MATRIX_SIZE).astype(np.float32)
 b_cpu = np.random.randn(MATRIX_SIZE, MATRIX_SIZE).astype(np.float32)
 
